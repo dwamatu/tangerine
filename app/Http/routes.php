@@ -14,41 +14,49 @@
 
 Route::group(['middleware'=> ['web']],function (){
 
+
     Route::get('/', function () {
         return view('welcome');
     })->name('home');
-    
-    Route::get('book.site', function () {
-        return view('booking');
-    })->name('book');
-    
 
-    Route::post('/signup',[
-        'uses'=> 'UserController@postSignUp',
+
+    Route::get('/addclient', function () {
+        return view('addclient');
+    })->name('add.client');
+
+    Route::get('/book', function () {
+        return view('book');
+    })->name('book.site');
+
+
+    Route::post('/signup', ['uses' => 'UserController@postSignUp',
         'as' => 'signup'
     ]);
-    Route::post('/signin',[
-        'uses'=> 'UserController@postSignIn',
+    Route::post('/signin', ['uses' => 'UserController@postSignIn',
         'as' => 'signin'
     ]);
-    Route::get ('/dashboard',[
-        'uses'=> 'SiteController@getDashboard',
+    Route::get('/dashboard', ['uses' => 'SiteController@getDashboard',
         'as' => 'dashboard'
 
     ]);
-    Route::get('/base', function () {
-        return view('base');
-    })->name('base');
+    Route::get('/booked', function () {
+        return view('booked');
+    })->name('booked.site');
+
+    Route::get('/allclients', function () {
+        return view('allclients');
+    })->name('view.clients');
+
+    Route::get('/closed', function () {
+        return view('closed');
+    })->name('closed.site');
 
 
-    Route::post('/createsite',[
-        'uses'=> 'SiteController@siteCreateSite',
+    Route::post('/createsite', ['uses' => 'SiteController@siteCreateSite',
         'as' => 'site.create'
     ]);
-    Route::post('/editsite', [
-        'uses'=> 'SiteController@siteEditSite',
+    Route::post('/editsite', ['uses' => 'SiteController@siteEditSite',
         'as' => 'edit.site'
     ]);
-
 
 });

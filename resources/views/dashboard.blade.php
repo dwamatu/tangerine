@@ -12,20 +12,24 @@
                     <div class="row">
                         <div class="col-md-3">
                             <form action="{{route('site.create')}}" method="post">
-                             {{--   <div class="input-group">
-                                    <span class="input-group-addon custom_label" id="basic-addon1">Site Id</span>
-                                    <input type="text" class="form-control custom_label"  name="site_id" id="site_id" disabled>
-                                </div>
-                                <div class="form-group">
-
-                                </div>
                                 <div class="input-group">
-                                    <span class="input-group-addon custom_label" id="basic-addon1">Site Name</span>
-                                    <input type="text" class="form-control custom_label"  name="site_name" id="site_name" disabled>
+                                    <h4 align="center">Add Site</h4>
                                 </div>
-                                <div class="form-group">
 
-                                </div>--}}
+                                {{--   <div class="input-group">
+                                       <span class="input-group-addon custom_label" id="basic-addon1">Site Id</span>
+                                       <input type="text" class="form-control custom_label"  name="site_id" id="site_id" disabled>
+                                   </div>
+                                   <div class="form-group">
+
+                                   </div>
+                                   <div class="input-group">
+                                       <span class="input-group-addon custom_label" id="basic-addon1">Site Name</span>
+                                       <input type="text" class="form-control custom_label"  name="site_name" id="site_name" disabled>
+                                   </div>
+                                   <div class="form-group">
+
+                                   </div>--}}
                                 <div class="input-group">
                                     <span class="input-group-addon custom_label" id="basic-addon1">Landmark</span>
                                     <input type="text" class="form-control custom_label"  name="landmark" id="landmark">
@@ -113,8 +117,10 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <table id="example" class="table table-striped table-bordered dataTable" cellspacing="0" width="100%" role="grid" aria-describedby="example_info" style="width: 100%;">
-                                        <thead>
+                                    <table id="example" class="table table-bordered dataTable" cellspacing="0"
+                                           width="100%" role="grid" aria-describedby="example_info"
+                                           style="width: 100%;">
+                                        <thead class="thead-inverse">
                                         <tr role="row">
                                             <th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Site ID: activate to sort column descending" style="width: 76px;">Site ID</th>
                                             <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Landmark: activate to sort column ascending" style="width: 100px;">Landmark</th>
