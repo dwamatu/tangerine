@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -40,7 +40,12 @@ class UserController extends Controller
         return redirect()-> route('dashboard');
 
 
+    }
 
+    public function getLogout()
+    {
+        Auth::logout();
+        return redirect()->route('home');
     }
 
     public function postSignIn(Request $request)

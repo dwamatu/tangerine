@@ -43,6 +43,16 @@
 
 
                     </div>
+
+                    <div class=" col-md-3 col-md-offset-9">
+                        <div class="form-group">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default">Search</button>
+                            </div>
+                        </div>
+
+
+                    </div>
                 </div>
                 <section class="row">
                     <table class="table table-inverse table-bordered">

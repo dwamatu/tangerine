@@ -1,9 +1,8 @@
-<div class="side-menu absolute-wrapper custom_label">
+<div class="side-menu absolute-wrapper">
     <nav class="navbar navbar-default" role="navigation">
         <!-- Main Menu -->
         <div class="side-menu-container">
-            <ul class="nav navbar-nav">
-
+            <ul class="nav navbar-nav side-menu">
                 <!-- Dropdown-->
                 <li class="panel panel-default" id="dropdown">
                     <a data-toggle="collapse" href="#dropdown-lvl1">
@@ -32,8 +31,7 @@
                     <div id="dropdown-lvl2" class="panel-collapse collapse">
                         <div class="panel-body">
                             <ul class="nav navbar-nav">
-                                <li><a href="{{route('add.client')}}">Add Client</a></li>
-                                <li><a href="{{route('view.clients')}}">View Clients</a></li>
+                                <li><a href="{{route('client.dashboard')}}">Add Client</a></li>
                             </ul>
                         </div>
                     </div>

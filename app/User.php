@@ -12,4 +12,9 @@ class User extends Model implements Authenticatable
     public function sites(){
         return $this->hasMany('App\Site');
     }
+
+    public function clients()
+    {
+        return $this->hasMany('App\Client');
+    }
 }

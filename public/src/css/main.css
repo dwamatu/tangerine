@@ -2,7 +2,13 @@
 
 .custom_label{
     font-size: 12px ;
+    text-overline-color: white;
 
+}
+
+/*Add Extra Padding to table*/
+.padd {
+    margin: 10px;
 }
 .site{
     width: auto;
@@ -79,7 +85,8 @@ SIDEBAR
     padding-top: 10px;
 }
 .side-menu{
-    padding-top: 50px;
+    padding-top: 25px;
+
 }
 /*Align nav-bar brand at the center*/
 .navbar-header {
@@ -88,7 +95,7 @@ SIDEBAR
     text-align: center;
     width: 100%;
 }
-.navbar-brand {float:none;}
+
 /*
 
 
@@ -119,8 +126,11 @@ SIDEBAR
     position: fixed;
     width: 220px;
     height: 100%;
-    background-color: #f8f8f8;
-    border-right: 1px solid #e7e7e7;
+
+    background-color: rgb(34, 34, 34);
+    border-bottom-color: rgb(8, 8, 8);
+
+
 }
 
 .side-menu .navbar {
@@ -161,7 +171,7 @@ SIDEBAR
     float: right;
 }
 .side-menu #dropdown > a {
-    border-bottom: 1px solid #f28500;
+    border-bottom: 1px solid #f3f3f3;
 }
 .side-menu #dropdown .panel-body {
     padding: 0;

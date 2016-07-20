@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Site;
+use DB;
+use Illuminate\Http\Request;
 
 
 class SiteController extends Controller
@@ -11,6 +12,7 @@ class SiteController extends Controller
     public function getDashboard()
     {
         $sites = Site::all();
+
         return view('dashboard',['sites'=>$sites]);
     }
     public function siteCreateSite(Request $request)
@@ -53,8 +55,14 @@ class SiteController extends Controller
         return redirect()->route('dashboard');
 
         /*return response()->json(['message'=> 'Site edited'],200);*/
-        
 
+
+    }
+
+    public function index()
+    {
+
+        return view();
     }
 
 

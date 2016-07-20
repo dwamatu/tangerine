@@ -14,11 +14,9 @@
 
 Route::group(['middleware'=> ['web']],function (){
 
-
     Route::get('/', function () {
         return view('welcome');
     })->name('home');
-
 
     Route::get('/addclient', function () {
         return view('addclient');
@@ -28,35 +26,29 @@ Route::group(['middleware'=> ['web']],function (){
         return view('book');
     })->name('book.site');
 
+    Route::post('/signup', ['uses' => 'UserController@postSignUp', 'as' => 'signup']);
 
-    Route::post('/signup', ['uses' => 'UserController@postSignUp',
-        'as' => 'signup'
-    ]);
-    Route::post('/signin', ['uses' => 'UserController@postSignIn',
-        'as' => 'signin'
-    ]);
-    Route::get('/dashboard', ['uses' => 'SiteController@getDashboard',
-        'as' => 'dashboard'
+    Route::post('/signin', ['uses' => 'UserController@postSignIn', 'as' => 'signin']);
 
-    ]);
+    Route::get('/dashboard', ['uses' => 'SiteController@getDashboard', 'as' => 'dashboard', 'middleware' => 'auth']);
+
+    Route::get('/logout', ['uses' => 'UserController@getLogout', 'as' => 'logout']);
+
+    Route::get('/clientdashboard', ['uses' => 'ClientController@getClientDashboard', 'as' => 'client.dashboard', 'middleware' => 'auth']);
+
     Route::get('/booked', function () {
         return view('booked');
     })->name('booked.site');
-
-    Route::get('/allclients', function () {
-        return view('allclients');
-    })->name('view.clients');
 
     Route::get('/closed', function () {
         return view('closed');
     })->name('closed.site');
 
+    Route::post('/createsite', ['uses' => 'SiteController@siteCreateSite', 'as' => 'site.create']);
 
-    Route::post('/createsite', ['uses' => 'SiteController@siteCreateSite',
-        'as' => 'site.create'
-    ]);
-    Route::post('/editsite', ['uses' => 'SiteController@siteEditSite',
-        'as' => 'edit.site'
-    ]);
+    Route::post('/editsite', ['uses' => 'SiteController@siteEditSite', 'as' => 'edit.site']);
+
+    Route::post('/createclient', ['uses' => 'ClientController@clientCreateClient', 'as' => 'create.client']);
+
 
 });
