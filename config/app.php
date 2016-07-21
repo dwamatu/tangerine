@@ -149,6 +149,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
 
+
         /*
          * Application Service Providers...
          */

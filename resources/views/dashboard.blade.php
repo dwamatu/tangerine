@@ -71,9 +71,10 @@
                         <div class="col-md-offset-3">
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <div id="gmap" style="with:300px;height:400px;"></div>
-
+                                    <div id="gmap-dropdown" style="with:300px;height:400px;"></div>
+                                    <div class="gmap-list"></div>
                                 </div>
+
                             </div>
 
 
@@ -135,9 +136,7 @@
 
                 </div>
             </div>
-        <script type="text/javascript">
 
-        </script>
 
     </section>
     <div class="modal fade" tabindex="-1" role="dialog" id="edit-modal">

@@ -51,4 +51,6 @@ Route::group(['middleware'=> ['web']],function (){
     Route::post('/createclient', ['uses' => 'ClientController@clientCreateClient', 'as' => 'create.client']);
 
 
+    Route::get('/paste', ['uses' => 'SiteController@index', 'as' => 'paste.sites']);
+
 });

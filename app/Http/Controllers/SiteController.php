@@ -58,12 +58,11 @@ class SiteController extends Controller
 
 
     }
-
     public function index()
     {
+        $sites = Site::all();
+        echo $sites;
 
-        return view();
     }
-
 
 }
