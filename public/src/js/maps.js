@@ -104,8 +104,19 @@ function initMap() {
                 styles: styles,
                 mapTypeControl: false
             });
+            //The following listener directly input the coordinates of a location
+            //when you clicked on a map, and adds the latitude and longitude details
+            //To the Add site form
+            //This will help the user to dynamically add sites if they know where there sites are located on the map.
             google.maps.event.addListener(map, 'click', function (e) {
-                alert("Latitude: " + e.latLng.lat() + "\r\nLongitude: " + e.latLng.lng());
+                //Create two variables that fetch the Inputs of the Latitude and Longitude inputs
+                var lat_textfld = $('#latitude');
+                var lng_textfld = $('#longitude');
+
+                //Pass the Latitude and Longitude details to the inputs.
+                lat_textfld.val(e.latLng.lat());
+                lng_textfld.val(e.latLng.lng());
+                /*alert("Latitude: " + e.latLng.lat() + "\r\nLongitude: " + e.latLng.lng());*/
             });
 
 
@@ -172,8 +183,11 @@ function initMap() {
             document.getElementById('show-listings').addEventListener('click', showListings);
             document.getElementById('hide-listings').addEventListener('click', hideListings);
             document.getElementById('toggle-drawing').addEventListener('click', function () {
-                toggleDrawing(drawingManager);
 
+                toggleDrawing(drawingManager);
+            });
+            document.getElementById('zoom-to-area').addEventListener('click', function () {
+                zoomToArea();
             });
             //Add an event listener so that the polygon is captured, call the
             // searchWithinPolygon function. This will show the markers in the polygon,
@@ -303,6 +317,38 @@ function initMap() {
                     } else {
                         markers[i].setMap(null);
                     }
+                }
+
+            }
+
+            // This function takes the input value in the find nearby area text input
+            // locates it, and then zooms into that area. This is so that the user can
+            // show all listings, then decide to focus on one area of the map.
+            function zoomToArea() {
+                //    Initialize the geocorder
+                var geocoder = new google.maps.Geocoder();
+                //    Get the address or place that the user entered
+                var address = document.getElementById('zoom-to-area-text').value;
+                //    make sure the address isn't blank
+                if (address == '') {
+                    window.alert('You must enter an area, or address');
+                } else {
+                    //    Geocode the adress/area entered too get the center. Then, center the map
+                    //    on it and zoom
+                    geocoder.geocode(
+                        {
+                            address: address,
+                            componentRestrictions: {locality: 'Nairobi'}
+                        }, function (results, status) {
+                            if (status == google.maps.GeocoderStatus.OK) {
+                                map.setCenter(results[0].geometry.location);
+                                map.setZoom(15);
+                            } else {
+                                window.alert('We could not find that location - try entering a more' + 'specific place');
+                            }
+
+                        }
+                    )
                 }
 
             }

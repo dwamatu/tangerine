@@ -83,6 +83,9 @@
                                         <input type="button" id="show-listings" value="Show Listings">
                                         <input type="button" id="hide-listings" value="Hide Listings">
                                         <input type="button" id="toggle-drawing" value="Drawing Tools">
+                                        <input type="text" id="zoom-to-area-text"
+                                               placeholder="Enter your favorite area!">
+                                        <input type="button" id="zoom-to-area" value="Zoom">
 
                                     </div>
                                 </div>
