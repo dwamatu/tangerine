@@ -26,9 +26,11 @@ $(function () {
                 controls_title: 'Choose a location:',
                 listeners: {
                     click: function (map, event) {
+
                         alert('That was a click!');
                     }
                 }
+
             }).Load();
         }
 
@@ -36,3 +38,4 @@ $(function () {
 
 
 });
+

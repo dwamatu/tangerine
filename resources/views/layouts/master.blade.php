@@ -28,9 +28,12 @@
 <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
 <script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.html5.min.js"></script>
 <script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.print.min.js"></script>
-<script src="https://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.22&key=AIzaSyAHSZHfNanEI64wMO0M6URymVBIGOh3wSA"></script>
-<script src="{{URL::to('src/js/maplace.min.js')}}"></script>
-<script src="{{URL::to('src/js/location.js')}}"></script>
+
+<script src="{{URL::to('src/js/maps.js')}}"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?libraries=drawing,geometry&key=AIzaSyAHSZHfNanEI64wMO0M6URymVBIGOh3wSA&callback=initMap">
+</script>
+
 
 <script src="{{URL::to('src/js/app.js')}}"></script>
 <script src="{{URL::to('src/js/datatables.js')}}"></script>

@@ -70,15 +70,30 @@
                         </div>
                         <div class="col-md-offset-3">
                             <div class="panel panel-default">
+
                                 <div class="panel-body">
-                                    <div id="gmap-dropdown" style="with:300px;height:400px;"></div>
-                                    <div class="gmap-list"></div>
+
+                                    <div id="map" style="height:400px;">
+
+                                    </div>
                                 </div>
+                                <div class="panel-footer">
+                                    <div class="options-box">
+
+                                        <input type="button" id="show-listings" value="Show Listings">
+                                        <input type="button" id="hide-listings" value="Hide Listings">
+                                        <input type="button" id="toggle-drawing" value="Drawing Tools">
+
+                                    </div>
+                                </div>
+
 
                             </div>
 
 
                         </div>
+
+
                     </div>
 
                     <section class="panel panel-default padd">
@@ -112,7 +127,7 @@
 
 
                                     </tr>
-                                            @endforeach
+                                @endforeach
                                 </tbody>
 
                                 <tfoot>
