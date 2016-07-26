@@ -1,6 +1,7 @@
 //Creates a new blank array for all the listing markers.
 var markers = [];
 var map;
+
 //This global polygon variable is to ensure only ONE polygon is rendered.
 var polygon = null;
 function initMap() {
@@ -104,6 +105,7 @@ function initMap() {
                 styles: styles,
                 mapTypeControl: false
             });
+
             //The following listener directly input the coordinates of a location
             //when you clicked on a map, and adds the latitude and longitude details
             //To the Add site form

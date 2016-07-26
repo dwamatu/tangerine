@@ -29,11 +29,6 @@
 <script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.html5.min.js"></script>
 <script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.print.min.js"></script>
 
-<script src="{{URL::to('src/js/maps.js')}}"></script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?libraries=drawing,geometry&key=AIzaSyAHSZHfNanEI64wMO0M6URymVBIGOh3wSA&callback=initMap">
-</script>
-
 
 <script src="{{URL::to('src/js/app.js')}}"></script>
 <script src="{{URL::to('src/js/datatables.js')}}"></script>

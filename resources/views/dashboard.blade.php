@@ -10,65 +10,7 @@
             <div class="container-fluid">
                 <div class="side-body">
                     <div class="row">
-                        <div class="col-md-3">
-                            <form action="{{route('site.create')}}" method="post">
-                                <div class="input-group">
-                                    <h4 align="center">Add Site</h4>
-                                </div>
-
-                                {{--   <div class="input-group">
-                                       <span class="input-group-addon custom_label" id="basic-addon1">Site Id</span>
-                                       <input type="text" class="form-control custom_label"  name="site_id" id="site_id" disabled>
-                                   </div>
-                                   <div class="form-group">
-
-                                   </div>
-                                   <div class="input-group">
-                                       <span class="input-group-addon custom_label" id="basic-addon1">Site Name</span>
-                                       <input type="text" class="form-control custom_label"  name="site_name" id="site_name" disabled>
-                                   </div>
-                                   <div class="form-group">
-
-                                   </div>--}}
-                                <div class="input-group">
-                                    <span class="input-group-addon custom_label" id="basic-addon1">Landmark</span>
-                                    <input type="text" class="form-control custom_label"  name="landmark" id="landmark">
-                                </div>
-                                <div class="form-group">
-
-                                </div>
-
-                                <div class="input-group">
-                                    <span class="input-group-addon custom_label" id="basic-addon1">Latitude</span>
-                                    <input type="text" class="form-control custom_label"  name="latitude" id="latitude">
-                                </div>
-                                <div class="form-group">
-
-                                </div>
-                                <div class="input-group">
-                                    <span class="input-group-addon custom_label" id="basic-addon1">Longitude</span>
-                                    <input type="text" class="form-control custom_label" name="longitude" id="longitude">
-                                </div>
-                                <div class="form-group">
-
-                                </div>
-                                <div class="input-group">
-                                    <span class="input-group-addon custom_label" id="basic-addon1">Size</span>
-                                    <input type="text" class="form-control custom_label"  name="size" id="size">
-                                </div>
-                                <div class="form-group">
-
-                                </div>
-
-                                <div class="btn-group button-group">
-                                    <button type="submit" class="btn btn-default custom_label ">Submit</button>
-                                    <input type="hidden" value="{{Session::token()}}" name="_token">
-                                </div>
-
-
-                            </form>
-                        </div>
-                        <div class="col-md-offset-3">
+                        <div class="col-md-12">
                             <div class="panel panel-default">
 
                                 <div class="panel-body">
@@ -95,6 +37,61 @@
 
 
                         </div>
+                        <div class="row">
+                            <div class=" col-md-4 col-md-offset-1">
+                                <div class="panel panel-primary">
+                                    <div class="panel-header">
+                                        <h5>Add Site</h5>
+                                    </div>
+                                    <div class="panel-body">
+                                        <form action="{{route('site.create')}}" method="post">
+                                            <div class="input-group">
+                                                <span class="input-group-addon custom_label"
+                                                      id="basic-addon1">Landmark</span>
+                                                <input type="text" class="form-control custom_label" name="landmark"
+                                                       id="landmark">
+                                            </div>
+                                            <div class="form-group"></div>
+
+                                            <div class="input-group">
+                                                <span class="input-group-addon custom_label"
+                                                      id="basic-addon1">Latitude</span>
+                                                <input type="text" class="form-control custom_label" name="latitude"
+                                                       id="latitude">
+                                            </div>
+                                            <div class="form-group"></div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon custom_label"
+                                                      id="basic-addon1">Longitude</span>
+                                                <input type="text" class="form-control custom_label" name="longitude"
+                                                       id="longitude">
+                                            </div>
+                                            <div class="form-group"></div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon custom_label"
+                                                      id="basic-addon1">Size</span>
+                                                <select class="form-control custom_label" id="size" name="size">
+                                                    <option value=""></option>
+                                                    <option value="StreetLight">Streetlight</option>
+                                                    <option value="Billboard">Billboard</option>
+                                                    <option value="Medium">Medium</option>
+
+                                                </select>
+                                            </div>
+                                            <div class="form-group"></div>
+                                            <div class="btn-group button-group">
+                                                <button type="submit" class="btn btn-default custom_label ">Submit
+                                                </button>
+                                                <input type="hidden" value="{{Session::token()}}" name="_token">
+                                            </div>
+
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
 
 
                     </div>
@@ -111,7 +108,6 @@
                                 <th>Latitude</th>
                                 <th>Longitude</th>
                                 <th>Size</th>
-                                {{-- <th>Added by</th>--}}
                                 <th>Edit</th>
                                 </thead>
                                 <tbody>
@@ -125,7 +121,7 @@
                                         <td>{{$site->latitude}}</td>
                                         <td>{{$site->longitude}}</td>
                                         <td>{{$site->size}}</td>
-                                        {{--  <td>{{$site->user->username}}</td>--}}
+
                                         <td><a class="edit" href="#">Update</a></td>
 
 
@@ -140,7 +136,6 @@
                                     <th rowspan="1" colspan="1">Latitude</th>
                                     <th rowspan="1" colspan="1">Longitude</th>
                                     <th rowspan="1" colspan="1">Size</th>
-                                    {{-- <th rowspan="1" colspan="1">Added by</th>--}}
                                     <th rowspan="1" colspan="1">Edit</th>
                                 </tr>
                                 </tfoot>
@@ -185,17 +180,17 @@
                             <span class="input-group-addon custom_label" id="basic-addon1">Longitude</span>
                             <input type="text" class="form-control custom_label" name="site-longitude" id="site-longitude">
                         </div>
-                        <div class="form-group">
-
-                        </div>
+                        <div class="form-group"></div>
                         <div class="input-group">
                             <span class="input-group-addon custom_label" id="basic-addon1">Size</span>
-                            <input type="text" class="form-control custom_label"  name="site-size" id="site-size">
+                            <select class="form-control custom_label" id="site-size" name="site-size">
+                                <option value=""></option>
+                                <option value="Billboard">Billboard</option>
+                                <option value="Medium">Medium</option>
+                                <option value="StreetLight">Streetlight</option>
+                            </select>
                         </div>
-                        <div class="form-group">
-
-                        </div>
-
+                        <div class="form-group"></div>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -207,6 +202,10 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?libraries=drawing,geometry&key=AIzaSyAHSZHfNanEI64wMO0M6URymVBIGOh3wSA&callback=initMap">
+    </script>
+    <script src="{{URL::to('src/js/maps.js')}}"></script>
 
     <script>
         var token = '{{Session::token()}}';

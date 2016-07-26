@@ -14,11 +14,13 @@ $('.odd').find('.edit').on('click',function (event) {
     var siteLatitude = event.target.parentNode.parentNode.children[2].textContent;
     var siteLongitude = event.target.parentNode.parentNode.children[3].textContent;
     var siteSize = event.target.parentNode.parentNode.children[4].textContent;
+
     siteId =  event.target.parentNode.parentNode.childNodes[1].textContent;
     $('#site-landmark').val(siteLandmark);
     $('#site-latitude').val(siteLatitude);
     $('#site-longitude').val(siteLongitude);
     $('#site-size').val(siteSize);
+
     $('#edit-modal').modal();
 });
 

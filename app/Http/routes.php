@@ -22,9 +22,6 @@ Route::group(['middleware'=> ['web']],function (){
         return view('addclient');
     })->name('add.client');
 
-    Route::get('/book', function () {
-        return view('book');
-    })->name('book.site');
 
     Route::post('/signup', ['uses' => 'UserController@postSignUp', 'as' => 'signup']);
 
@@ -36,13 +33,6 @@ Route::group(['middleware'=> ['web']],function (){
 
     Route::get('/clientdashboard', ['uses' => 'ClientController@getClientDashboard', 'as' => 'client.dashboard', 'middleware' => 'auth']);
 
-    Route::get('/booked', function () {
-        return view('booked');
-    })->name('booked.site');
-
-    Route::get('/closed', function () {
-        return view('closed');
-    })->name('closed.site');
 
     Route::post('/createsite', ['uses' => 'SiteController@siteCreateSite', 'as' => 'site.create']);
 

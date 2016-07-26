@@ -21,14 +21,17 @@ class SiteController extends Controller
             'landmark'=>'required|max:40',
             'longitude'=> 'required',
             'latitude'=> 'required',
-            'size'=>'required|max:20'
+            'size' => 'required|max:20',
+
         ]);
         $site = new Site();
         $site->landmark = $request['landmark'];
         $site->longitude = $request['longitude'];
         $site->latitude = $request['latitude'];
         $site->size = $request['size'];
+
         $message = "There was an error";
+
         if($request->user()->sites()->save($site))
         {
             $message = 'Site succesfully created';
@@ -42,7 +45,8 @@ class SiteController extends Controller
             'landmark'=>'required|max:40',
             'longitude'=> 'required',
             'latitude'=> 'required',
-            'size'=>'required|max:20'
+            'size' => 'required|max:20',
+
 
         ]);
         $site = Site::find($request['siteId']);
@@ -50,6 +54,7 @@ class SiteController extends Controller
         $site ->latitude =$request['latitude'];
         $site ->longitude =$request['longitude'];
         $site ->size =$request['size'];
+
 
         $site->update();
         return redirect()->route('dashboard');
