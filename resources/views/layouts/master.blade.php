@@ -2,24 +2,33 @@
 <html>
 <head>
     <title>@yield('title')</title>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ URL::asset('src/css/main.css')}}">
+    <link rel="stylesheet" href="{{ URL::asset('/src/css/bootstrap-3.3.7-dist/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ URL::asset('/src/css/main.css')}}">
+    <link rel="stylesheet" href="{{ URL::asset('/src/css/animate.css')}}">
+    <link rel="stylesheet" href="{{ URL::asset('/src/css/font-awesome-4.6.3/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('src/css/jquery.dataTables.min.css')}}">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.1/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="{{ URL::asset('/src/css/typeahead.css')}}">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
+
 
 </head>
 <body>
 @include('includes.header')
-@include('includes.sidebar')
+
 
 <div class="container">
     @yield('content')
 </div>
 
 
-<script src="{{URL::to('src/js/jquery-1.12.3.js')}}"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
+<script src="{{URL::to('/src/js/jquery.noty.packaged.js')}}"></script>
+<script src="{{URL::to('src/css/bootstrap-3.3.7-dist/js/bootstrap.min.js')}}"></script>
 <script src="{{URL::to('src/js/jquery.dataTables.min.js')}}"></script>
 <script src="https://cdn.datatables.net/buttons/1.2.1/js/dataTables.buttons.min.js"></script>
 <script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.flash.min.js"></script>

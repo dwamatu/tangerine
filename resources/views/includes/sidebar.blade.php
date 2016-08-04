@@ -3,24 +3,8 @@
         <!-- Main Menu -->
         <div class="side-menu-container">
             <ul class="nav navbar-nav side-menu">
-            {{-- <!-- Dropdown-->
-             <li class="panel panel-default" id="dropdown">
-                 <a data-toggle="collapse" href="#dropdown-lvl1">
-                     <span class="glyphicon glyphicon-user"></span> Dropdown <span class="caret"></span>
-                 </a>
+                <!-- Dropdown-->
 
-                 <!-- Dropdown level 1 -->
-                 <div id="dropdown-lvl1" class="panel-collapse collapse">
-                     <div class="panel-body">
-                         <ul class="nav navbar-nav">
-                             <li><a href="#">Dropdown</a></li>
-                             <li><a href="#">Dropdown </a></li>
-
-                         </ul>
-
-                     </div>
-                 </div>
-             </li>--}}
                 <!-- Dropdown-->
                 <li class="panel panel-default" id="dropdown">
                     <a data-toggle="collapse" href="#dropdown-lvl2">
@@ -33,6 +17,23 @@
                             <ul class="nav navbar-nav">
                                 <li><a href="{{route('client.dashboard')}}">Add Client</a></li>
                             </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="panel panel-default" id="dropdown">
+                    <a data-toggle="collapse" href="#dropdown-lvl1">
+                        <span class="glyphicon glyphicon-user"></span>Sites <span class="caret"></span>
+                    </a>
+
+                    <!-- Dropdown level 1 -->
+                    <div id="dropdown-lvl1" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <ul class="nav navbar-nav">
+                                <li><a href="{{route('transaction')}}">Manage Sites</a></li>
+
+
+                            </ul>
+
                         </div>
                     </div>
                 </li>

@@ -1,6 +1,4 @@
-/**
- * Created by black on 7/14/16.
- */
+
 
 
 /*This pops up a modal that update the details of the site, if they need to be updated
@@ -54,3 +52,43 @@ $('.even').find('.update').on('click', function (event) {
 
 
 });
+/*
+ * This saves transactions in the database
+ * */
+$('#record-transaction').on('click', function () {
+    $.ajax({
+        method: 'POST',
+        url: urlSaveTransaction,
+        data: {
+            site_id: $('#the-site-id').val(),
+            clientname: $('#tmpclient_name').val(),
+            event: $('#event').val(),
+            transaction_date: $('#start_date').val(),
+            duration: $('#duration').val(),
+            comment: $('#comment').val(),
+            _token: token
+        }
+    }).done(function (msg) {
+        console.log(JSON.stringify(msg));
+        $('#transaction-modal').modal('hide');
+
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -7,8 +7,9 @@
 
     <section class="row ">
         <!-- Main Content -->
-        <div class="container-fluid">
-            <div class="side-body">
+        <div class="main-content">
+            <div class="container-fluid">
+
                 <div class="row">
 
 
@@ -21,30 +22,30 @@
                                 <form method="post" action="{{route('create.client')}}" enctype="multipart/form-data">
 
                                     <div class="input-group">
-                                        <span class="input-group-addon custom_label"
+                                        <span class="input-group-addon input-sm"
                                               id="sizing-addon2">Client Name</span>
-                                        <input type="text" class="form-control custom_label" name="client_name"
+                                        <input type="text" class="form-control input-sm" name="client_name"
                                                id="client_name"
                                                aria-describedby="sizing-addon2">
                                     </div>
                                     <div class="form-group"></div>
                                     <div class="input-group">
-                                        <span class="input-group-addon custom_label"
+                                        <span class="input-group-addon input-sm"
                                               id="sizing-addon2">Client Contact</span>
-                                        <input type="text" class="form-control custom_label" name="client_contact"
+                                        <input type="text" class="form-control input-sm" name="client_contact"
                                                id="client_contact" aria-describedby="sizing-addon2">
                                     </div>
                                     <div class="form-group"></div>
                                     <div class="input-group">
-                                        <span class="input-group-addon custom_label"
+                                        <span class="input-group-addon input-sm"
                                               id="sizing-addon2">Client Email</span>
-                                        <input type="email" class="form-control custom_label" name="client_email"
+                                        <input type="email" class="form-control input-sm" name="client_email"
                                                id="client_email" aria-describedby="sizing-addon2">
                                     </div>
 
                                     <div class="form-group"></div>
-                                    <div class="btn-group">
-                                        <button class="btn btn-secondary custom_label" type="submit">Submit</button>
+                                    <div class="btn btn-group-sm">
+                                        <button class="btn btn-secondary input-sm" type="submit">Submit</button>
                                     </div>
                                     <input type="hidden" value="{{Session::token()}}" name="_token">
                                 </form>
@@ -54,7 +55,7 @@
                     </div>
 
                 </div>
-                <section class="panel panel-default padd">
+                <section class="panel panel-default">
                     <div class="panel-heading"><h5>Client Information</h5></div>
                     <div class="panel-body">
                         <table id="myTable" class="table table-hover table-bordered dataTable">
@@ -103,20 +104,20 @@
                 <div class="modal-body">
                     <form action="" class="form-group">
                         <div class="input-group">
-                            <span class="input-group-addon custom_label" id="sizing-addon2">Client Name</span>
-                            <input type="text" class="form-control custom_label" name="clientname" id="clientname"
+                            <span class="input-group-addon input-sm" id="sizing-addon2">Client Name</span>
+                            <input type="text" class="form-control input-sm" name="clientname" id="clientname"
                                    aria-describedby="sizing-addon2">
                         </div>
-                        <div class="form-group"></div>
+                        <div class="form-group "></div>
                         <div class="input-group">
-                            <span class="input-group-addon custom_label" id="sizing-addon2">Client Contact</span>
-                            <input type="text" class="form-control custom_label" name="clientcontact"
+                            <span class="input-group-addon input-sm" id="sizing-addon2">Client Contact</span>
+                            <input type="text" class="form-control input-sm" name="clientcontact"
                                    id="clientcontact" aria-describedby="sizing-addon2">
                         </div>
                         <div class="form-group"></div>
                         <div class="input-group">
-                            <span class="input-group-addon custom_label" id="sizing-addon2">Client Email</span>
-                            <input type="email" class="form-control custom_label" name="clientemail"
+                            <span class="input-group-addon input-sm" id="sizing-addon2">Client Email</span>
+                            <input type="email" class="form-control input-sm" name="clientemail"
                                    id="clientemail" aria-describedby="sizing-addon2">
                         </div>
 

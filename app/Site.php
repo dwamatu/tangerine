@@ -14,4 +14,9 @@ class Site extends Model
     {
         return $this->belongsTo('App\Client');
     }
+
+    public function transaction()
+    {
+        return $this->hasOne('App\Transaction');
+    }
 }

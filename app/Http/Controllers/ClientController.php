@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Client;
+use DB;
 use Illuminate\Http\Request;
-
 
 class ClientController extends Controller
 {
@@ -34,6 +34,17 @@ class ClientController extends Controller
         $client->save();
 
         return redirect()->route('client.dashboard');
+
+    }
+
+    public function getClients()
+    {
+        $clients = Client::all()->pluck('client_name');
+
+        /*foreach ($clients as $client) {
+            echo $client ;
+        }*/
+        echo $clients;
 
     }
 
