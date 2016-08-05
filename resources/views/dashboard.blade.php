@@ -52,12 +52,12 @@
                                 <h5>Add Site</h5>
                             </div>
                             <div class="panel-body">
-                                <form action="{{route('site.create')}}" method="post">
+                                <form action=" " method="post" class="form-addsite" id="form-addsite">
                                     <div class="input-group">
                                                 <span class="input-group-addon input-sm"
                                                       id="basic-addon1">Landmark</span>
                                         <input type="text" class="form-control input-sm" name="landmark"
-                                               id="landmark">
+                                               id="landmark" required>
                                     </div>
                                     <div class="form-group"></div>
 
@@ -65,19 +65,19 @@
                                                 <span class="input-group-addon input-sm"
                                                       id="basic-addon1">Latitude</span>
                                         <input type="text" class="form-control input-sm" name="latitude"
-                                               id="latitude">
+                                               id="latitude" required>
                                     </div>
                                     <div class="form-group"></div>
                                     <div class="input-group">
                                                 <span class="input-group-addon custom_label"
                                                       id="basic-addon1">Longitude</span>
                                         <input type="text" class="form-control input-sm" name="longitude"
-                                               id="longitude">
+                                               id="longitude" required>
                                     </div>
                                     <div class="form-group"></div>
                                     <div class="input-group">
                                         <span class="input-group-addon input-sm" id="basic-addon1">Size</span>
-                                        <select class="form-control input-sm" id="size" name="size">
+                                        <select class="form-control input-sm" id="size" name="size" required>
                                             <option value=""></option>
                                             <option value="StreetLight">Streetlight</option>
                                             <option value="Billboard">Billboard</option>
@@ -88,7 +88,7 @@
                                     <div class="form-group"></div>
                                     <div class="input-group">
                                         <span class="input-group-addon input-sm" id="basic-addon1">Status</span>
-                                        <select class="form-control input-sm" id="status" name="status">
+                                        <select class="form-control input-sm" id="status" name="status" required>
                                             <option value=""></option>
                                             <option value="Open">Open</option>
                                             <option value="Close">Close</option>
@@ -97,7 +97,7 @@
                                     </div>
                                     <div class="form-group"></div>
                                     <div class="btn-group-sm">
-                                        <button type="submit" class="btn btn-default ">Submit
+                                        <button type="button" class="btn btn-default" id="btn-create-site">Submit
                                         </button>
                                         <input type="hidden" value="{{Session::token()}}" name="_token">
                                     </div>
@@ -451,6 +451,11 @@
     <script>
         var token = '{{Session::token()}}';
         var urlEdit = '{{route('edit.site')}}';
+
+    </script>
+    <script>
+        var token = '{{Session::token()}}';
+        var urlCreateSite = '{{route('site.create')}}';
 
     </script>
     <script>

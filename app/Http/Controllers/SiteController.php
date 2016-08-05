@@ -59,6 +59,7 @@ class SiteController extends Controller
             'latitude' => 'required',
             'size' => 'required|max:20',
         ]);
+
         $site = Site::find($request['siteId']);
         $site->landmark = $request['landmark'];
         $site->latitude = $request['latitude'];

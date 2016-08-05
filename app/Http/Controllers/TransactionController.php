@@ -31,6 +31,7 @@ class TransactionController extends Controller
         $transaction->user_id = $user->id;
 
         $transaction->save();
+
         return redirect()->route('dashboard');
 
 

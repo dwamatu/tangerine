@@ -79,6 +79,7 @@ function initMap() {
     displayMarkers('all');
     $('#closed-listings').on('click', function () {
         displayMarkers('closed');
+
     });
     $('#open-listings').on('click', function () {
         displayMarkers('open');
@@ -88,6 +89,7 @@ function initMap() {
     });
     $('#show-listings').on('click', function () {
         displayMarkers('all');
+
     });
 
     function displayMarkers(status) {
@@ -150,8 +152,8 @@ function initMap() {
                 });
 
                 map = new google.maps.Map(document.getElementById('map'), {
-                    center: {lat: -1.274941, lng: 36.810459},
-                    zoom: 6,
+                    center: {lat: -1.2349888923343253, lng: 36.818428038968705},
+                    zoom: 8,
                     styles: styles,
                     mapTypeControl: false
                 });
@@ -380,7 +382,12 @@ function initMap() {
                     var address = document.getElementById('zoom-to-area-text').value;
                     //    make sure the address isn't blank
                     if (address == '') {
-                        window.alert('You must enter an area, or address');
+
+
+                        /*window.alert('You must enter an area, or address');*/
+                        generate('error', googleMapserr);
+
+
                     } else {
                         //    Geocode the adress/area entered too get the center. Then, center the map
                         //    on it and zoom
@@ -424,7 +431,6 @@ function initMap() {
             new google.maps.Size(21, 34));
         return markerImage;
     }
-
 }
 
 

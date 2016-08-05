@@ -1,19 +1,16 @@
-
-
-
 /*This pops up a modal that update the details of the site, if they need to be updated
  * Any user can only update sites they uploaded individually*/
-var siteId=0;
+var siteId = 0;
 
 
-$('.odd').find('.edit').on('click',function (event) {
+$('.odd').find('.edit').on('click', function (event) {
     event.preventDefault();
     var siteLandmark = event.target.parentNode.parentNode.children[1].textContent;
     var siteLatitude = event.target.parentNode.parentNode.children[2].textContent;
     var siteLongitude = event.target.parentNode.parentNode.children[3].textContent;
     var siteSize = event.target.parentNode.parentNode.children[4].textContent;
 
-    siteId =  event.target.parentNode.parentNode.childNodes[1].textContent;
+    siteId = event.target.parentNode.parentNode.childNodes[1].textContent;
     $('#site-landmark').val(siteLandmark);
     $('#site-latitude').val(siteLatitude);
     $('#site-longitude').val(siteLongitude);
@@ -21,21 +18,23 @@ $('.odd').find('.edit').on('click',function (event) {
 
     $('#edit-modal').modal();
 });
-
-$('#site-modal-save').on('click',function () {
-   $.ajax({
-       method: 'POST',
-       url: urlEdit,
-       data: {      landmark:$('#site-landmark').val(),
-                    latitude:$('#site-latitude').val(),
-                    longitude:$('#site-longitude').val(),
-                    size: $('#site-size').val(),
-                    siteId:siteId,
-                    _token:token }
-   }).done(function (msg) {
-       console.log(JSON.stringify(msg));
+//This saves the modified changes in the database.
+$('#site-modal-save').on('click', function () {
+    $.ajax({
+        method: 'POST',
+        url: urlEdit,
+        data: {
+            landmark: $('#site-landmark').val(),
+            latitude: $('#site-latitude').val(),
+            longitude: $('#site-longitude').val(),
+            size: $('#site-size').val(),
+            siteId: siteId,
+            _token: token
+        }
+    }).done(function (msg) {
+        console.log(JSON.stringify(msg));
         $('#edit-modal').modal('hide');
-    }) ;
+    });
 });
 
 /*This pops up a modal that updates the data of a client. Client can be updated by any user. This though should be change*/
@@ -69,13 +68,92 @@ $('#record-transaction').on('click', function () {
             _token: token
         }
     }).done(function (msg) {
+        generate('success', notification_html[3]);
         console.log(JSON.stringify(msg));
+
         $('#transaction-modal').modal('hide');
 
     });
 });
 
 
+//Creating a site and validation
+//
+$('#btn-create-site').on('click', function () {
+
+    if ($.trim($('#landmark').val()) === "") {
+        generate('error', landmarkrequired);
+    }
+    else if ($.trim($('#longitude').val()) == "") {
+        generate('error', longituderequired);
+    }
+    else if ($.trim($('#latitude').val()) == "") {
+        generate('error', latituderequired);
+    }
+    else if ($.trim($('#size').val()) == "") {
+        generate('error', sizerequired);
+    }
+    else if ($.trim($('#status').val()) == "") {
+        generate('error', statusrequired);
+    }
+    else {
+        $.ajax({
+            method: 'POST',
+            url: urlCreateSite,
+            data: {
+                landmark: $.trim($('#landmark').val()),
+                longitude: $.trim($('#longitude').val()),
+                latitude: $.trim($('#latitude').val()),
+                size: $.trim($('#size').val()),
+                status: $.trim($('#status').val()),
+                _token: token
+            }
+
+        }).done(function (msg) {
+            console.log(JSON.stringify(msg));
+            generate('success', notification_html[5]);
+            $('#form-addsite').trigger("reset");
+            /*location.reload();*/
+        });
+    }
+
+});
+
+// Validation and Sign In
+
+$('#btn-signIn').on('click', function () {
+
+    if ($.trim($('#email').val()) === "") {
+        generate('error', emailrequired);
+    }
+    else if ($.trim($('#password').val()) == "") {
+        generate('error', passwordrequired);
+    }
+    else {
+        $.ajax({
+            method: 'POST',
+            url: urlSignin,
+            data: {
+                email: $.trim($('#email').val()),
+                password: $.trim($('#password').val()),
+                _token: token
+            },
+            success: function (msg) {
+
+                window.location.href = "http://tangerine.local/dashboard";
+                /* generate('information', notification_html[2]);
+
+                 setTimeout(function () {
+                 window.location.href = "http://tangerine.local/dashboard";
+                 }, 1000);
+                 */
+            },
+
+
+        });
+    }
+
+});
 
 
 
