@@ -154,6 +154,42 @@ $('#btn-signIn').on('click', function () {
     }
 
 });
+// Create a Client
+$('#btn-addclient').on('click', function () {
+    if ($.trim($('#client_name').val()) === "") {
+        generate('error', namerequired);
+    }
+    else if ($.trim($('#client_contact').val()) == "") {
+        generate('error', contactrequired);
+    }
+    else if ($.trim($('#client_email').val()) == "") {
+        generate('error', emailrequired);
+    }
+    else {
+        $.ajax({
+            method: 'POST',
+            url: urlCreateClient,
+            data: {
+                client_name: $.trim($('#client_name').val()).toLowerCase(),
+                client_contact: $.trim($('#client_contact').val()),
+                client_email: $.trim($('#client_email').val()),
+                _token: token
+            },
+            success: function (msg) {
+                generate('success', entrysuccessful);
+                window.location.href = "http://tangerine.local/clientdashboard";
+
+                /*
+
+                 setTimeout(function () {
+                 window.location.href = "http://tangerine.local/dashboard";
+                 }, 1000);
+                 */
+            },
+        });
+    }
+});
+
 
 
 

@@ -19,7 +19,7 @@
                                 <h5> Add Client</h5>
                             </div>
                             <div class="panel-body">
-                                <form method="post" action="{{route('create.client')}}" enctype="multipart/form-data">
+                                <form method="post" action="" enctype="multipart/form-data">
 
                                     <div class="input-group">
                                         <span class="input-group-addon input-sm"
@@ -45,7 +45,7 @@
 
                                     <div class="form-group"></div>
                                     <div class="btn btn-group-sm">
-                                        <button class="btn btn-secondary input-sm" type="submit">Submit</button>
+                                        <button class="btn btn-secondary input-sm" type="button" id="btn-addclient">Submit</button>
                                     </div>
                                     <input type="hidden" value="{{Session::token()}}" name="_token">
                                 </form>
@@ -131,6 +131,10 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+    <script>
+        var token = '{{Session::token()}}';
+        var urlCreateClient = '{{route('create.client')}}';
+    </script>
 
 
 @endsection

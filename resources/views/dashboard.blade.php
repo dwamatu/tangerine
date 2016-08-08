@@ -92,7 +92,6 @@
                                             <option value=""></option>
                                             <option value="Open">Open</option>
                                             <option value="Close">Close</option>
-
                                         </select>
                                     </div>
                                     <div class="form-group"></div>

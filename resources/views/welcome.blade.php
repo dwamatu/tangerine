@@ -60,7 +60,7 @@
                             <div class="form-group">
 
                             </div>
-                            <button type="button" class="btn btn-primary input-sm">Sign Up</button>
+                            <button type="submit" class="btn btn-primary input-sm">Sign Up</button>
                             <input type="hidden" name="_token" value="{{Session::token()}}">
                         </form>
                     </div>
