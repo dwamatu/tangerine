@@ -54,23 +54,23 @@
                             <div class="panel-body">
                                 <form action=" " method="post" class="form-addsite" id="form-addsite">
                                     <div class="input-group">
-                                                <span class="input-group-addon input-sm"
-                                                      id="basic-addon1">Landmark</span>
+                                        <span class="input-group-addon input-sm"
+                                              id="basic-addon1">Landmark</span>
                                         <input type="text" class="form-control input-sm" name="landmark"
                                                id="landmark" required>
                                     </div>
                                     <div class="form-group"></div>
 
                                     <div class="input-group">
-                                                <span class="input-group-addon input-sm"
-                                                      id="basic-addon1">Latitude</span>
+                                        <span class="input-group-addon input-sm"
+                                              id="basic-addon1">Latitude</span>
                                         <input type="text" class="form-control input-sm" name="latitude"
                                                id="latitude" required>
                                     </div>
                                     <div class="form-group"></div>
                                     <div class="input-group">
-                                                <span class="input-group-addon custom_label"
-                                                      id="basic-addon1">Longitude</span>
+                                        <span class="input-group-addon custom_label"
+                                              id="basic-addon1">Longitude</span>
                                         <input type="text" class="form-control input-sm" name="longitude"
                                                id="longitude" required>
                                     </div>
@@ -91,7 +91,6 @@
                                         <select class="form-control input-sm" id="status" name="status" required>
                                             <option value=""></option>
                                             <option value="Open">Open</option>
-                                            <option value="Close">Close</option>
                                         </select>
                                     </div>
                                     <div class="form-group"></div>
@@ -404,6 +403,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon input-sm">Event</span>
                                 <select class="form-control input-sm" name="event" id="event">
+                                    <option value=""></option>
                                     <option value="Book">Book</option>
                                     <option value="Close">Close</option>
                                     <option value="Open">Open</option>

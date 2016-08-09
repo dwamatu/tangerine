@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Client;
 use App\Transaction;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,6 +21,10 @@ class TransactionController extends Controller
         $user = Auth::user();
         $client = Client::where('client_name', $request['tmpclient_name'])->first();
         /* dd($client);*/
+//      Variables for updating the table
+        $trans_siteId = $request['the-site-id'];
+        $trans_status = $request['event'];
+
 
         $transaction = new Transaction();
         $transaction->site_id = $request['the-site-id'];
@@ -31,6 +36,12 @@ class TransactionController extends Controller
         $transaction->user_id = $user->id;
 
         $transaction->save();
+
+        //updates the status of a site if it changes
+
+        DB::table('sites')
+            ->where('id', $trans_siteId)
+            ->update(['status' => $trans_status]);
 
         return redirect()->route('dashboard');
 
