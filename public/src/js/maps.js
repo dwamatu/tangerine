@@ -193,7 +193,7 @@ function initMap() {
                 // The following group uses the location array to create an array of markers on initialize
                 for (var i = 0; i < locations.length; i++) {
                     var position = locations[i].location;
-                    var title = locations[i].title + '' + ' | ' + locations[i].stat + ' | ' + locations[i].markernumber;
+                    var title = '<strong>' + locations[i].title + '</strong>' + ' <br> ' + locations[i].stat;
                     var tmpSiteId = locations[i].markernumber;
 
                     //Create a marker per location, and put into markers array
@@ -227,7 +227,7 @@ function initMap() {
                     });
                     //Extend the boundaries of the map for each marker
 
-                    bounds.extend(markers[i].position);
+                    bounds.extend(marker.position);
                 }
                 /// Extend the boundaries of the map for each marker
                 map.fitBounds(bounds);

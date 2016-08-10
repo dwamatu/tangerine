@@ -92,7 +92,7 @@ class SiteController extends Controller
 
     public function getClosed()
     {
-        $sites = json_encode(DB::table('sites')->where('status', 'Close')->get());
+        $sites = json_encode(DB::table('sites')->where('status', 'Closed')->get());
         /* dd($sites);*/
         echo $sites;
 
@@ -100,7 +100,7 @@ class SiteController extends Controller
 
     public function getBooked()
     {
-        $sites = json_encode(DB::table('sites')->where('status', 'Book')->get());
+        $sites = json_encode(DB::table('sites')->where('status', 'Booked')->get());
         /* dd($sites);*/
         echo $sites;
 

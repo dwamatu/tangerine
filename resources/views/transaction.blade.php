@@ -28,6 +28,7 @@
                                         <th>Client Name</th>
                                         <th>Event</th>
                                         <th>Transaction Date</th>
+                                        <th>Expiry Date</th>
                                         <th>Duration</th>
                                         <th>Comment</th>
                                         <th>By</th>
@@ -42,6 +43,7 @@
                                             <td>{{$transaction->client->client_name}}</td>
                                             <td>{{$transaction->event}}</td>
                                             <td>{{$transaction->transaction_date}}</td>
+                                            <td>{{$transaction->expiry_date}}</td>
                                             <td>{{$transaction->duration}} days</td>
                                             <td>{{$transaction->comments}}</td>
                                             <td>{{$transaction->user->username}}</td>
@@ -65,6 +67,7 @@
                                         <th>Client Name</th>
                                         <th>Event</th>
                                         <th>Transaction Date</th>
+                                        <th>Expiry Date</th>
                                         <th>Duration</th>
                                         <th>Comment</th>
                                         <th>By</th>
