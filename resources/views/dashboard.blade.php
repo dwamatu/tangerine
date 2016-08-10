@@ -128,7 +128,7 @@
                         <div id="tabs-1">
                             <table id="vTable1" class="table table-hover table-bordered viewTable">
                                 <thead>
-                                <th>Site ID</th>
+                                <th>#</th>
                                 <th>Landmark</th>
                                 <th>Latitude</th>
                                 <th>Longitude</th>
@@ -174,7 +174,7 @@
                         <div id="tabs-2">
                             <table id="vTable2" class="table table-hover table-bordered viewTable">
                                 <thead>
-                                <th>Site ID</th>
+                                <th>#</th>
                                 <th>Landmark</th>
                                 <th>Latitude</th>
                                 <th>Longitude</th>
@@ -378,7 +378,11 @@
 
     {{--Record Transaction Modal--}}
 
-
+    <style>
+        .extrapadd {
+            padding-top: 5px;
+        }
+    </style>
 
     <div class="modal fade bd-example-modal-sm" id="transaction-modal" tabindex="-1" role="dialog"
          aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -386,42 +390,42 @@
             <div class="modal-content">
                 <div class="panel panel-default-sm">
                     <div class="panel-heading">
-                        Manage Sites
-                        <div id="theid"></div>
+                        <h5> Manage Sites</h5>
+                        {{--  <div id="theid"></div>--}}
                     </div>
                     <div class="panel-body">
                         <form action="" method="post" class="form-group-sm">
-                            <div class="input-group">
-                                <span class="input-group-addon input-sm">Site Id</span>
+                            <div class="input-group ">
+                                <span class="input-group-addon input-sm ">Site Id</span>
                                 <input type="text" id="thee-site-id" name="the-site-id" class="form-control input-sm">
                             </div>
-                            <div class="input-group">
-                                <span class="input-group-addon input-sm ">Client Name</span>
+                            <div class="input-group extrapadd">
+                                <span class="input-group-addon input-sm">Client Name</span>
                                 <input type="text" class="form-control input-sm typeahead" id="tmpclient_name"
                                        name="tmpclient_name" autocomplete="off">
                             </div>
-                            <div class="input-group">
+                            <div class="input-group extrapadd">
                                 <span class="input-group-addon input-sm">Event</span>
                                 <select class="form-control input-sm" name="event" id="event">
                                     <option value=""></option>
-                                    <option value="Book">Book</option>
-                                    <option value="Close">Close</option>
+                                    <option value="Booked">Booking</option>
+                                    <option value="Closed">Closing</option>
                                     <option value="Open">Open</option>
                                 </select>
                             </div>
-                            <div class="input-group">
-                                <span class="input-group-addon input-sm">Start Date</span>
+                            <div class="input-group extrapadd">
+                                <span class="input-group-addon input-sm ">Start Date</span>
                                 <input type="date" class="form-control input-sm" id="start_date" name="start_date">
                             </div>
-                            <div class="input-group">
-                                <span class="input-group-addon input-sm">Duration</span>
+                            <div class="input-group extrapadd">
+                                <span class="input-group-addon input-sm ">Duration</span>
                                 <input type="number" class="form-control input-sm" id="duration" name="duration">
                             </div>
-
-                            <textarea name="comment" id="comment" class="form-control input-sm"
+                            <div class="form-group extrapadd">
+                            <textarea name="comment" id="comment" class="form-control input-sm "
                                       placeholder="Comment"></textarea>
-
-                            <div class="btn-group">
+                            </div>
+                            <div class="btn-group extrapadd">
                                 <button class="btn btn-default input-sm" type="button" id="record-transaction">Record
                                 </button>
                                 <input type="hidden" name="_token" value="{{Session::token()}}">

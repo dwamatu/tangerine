@@ -15,9 +15,31 @@ $('#myTable4').DataTable().search('Open').draw();
 $('.viewTable').DataTable({
 
     dom: 'Bfrtip',
-    buttons: [
-        'copy', 'csv', 'excel', 'pdf', 'print'
-    ]
+    buttons: [{
+        extend: 'excelHtml5',
+        exportOptions: {
+            columns: [0, 1, 2, 3, 4, 5]
+        }
+    },
+        {
+            extend: 'csvHtml5',
+            exportOptions: {
+                columns: [0, 1, 2, 3, 4, 5]
+            }
+        },
+        {
+            extend: 'pdfHtml5',
+            "title": "Sites",
+            message: 'A list of the Sites.',
+            exportOptions: {
+                columns: [0, 1, 2, 3, 4, 5]
+            }
+        }/*, {
+         text: 'New User',
+         action: function (e, dt, node, config) {
+         $('#new_userform').modal('show');
+         }
+         }*/]
 
 });
 
@@ -52,6 +74,39 @@ $('#dataTable').DataTable({
             text: 'New User',
             action: function (e, dt, node, config) {
                 $('#new_userform').modal('show');
+            }
+        }]
+
+
+});
+
+// /Clients Data Table
+$('.ClientsTable').DataTable({
+
+    dom: 'Bfrtip',
+    buttons: [{
+        extend: 'excelHtml5',
+        exportOptions: {
+            columns: [0, 1, 2, 3]
+        }
+    },
+        {
+            extend: 'csvHtml5',
+            exportOptions: {
+                columns: [0, 1, 2, 3]
+            }
+        },
+        {
+            extend: 'pdfHtml5',
+            "title": "Clients",
+            message: 'A list of the Clients.',
+            exportOptions: {
+                columns: [0, 1, 2, 3]
+            }
+        }, {
+            text: 'New Client',
+            action: function (e, dt, node, config) {
+                $('#addclient_modal').modal('show');
             }
         }]
 

@@ -16,6 +16,12 @@
             <ul class="nav navbar-nav">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Sites <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class=""><a href="#"> Add Multiple Sites</a></li>
+                    </ul>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">Clients <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{route('client.dashboard')}}">Add Client</a></li>
@@ -27,7 +33,9 @@
                           <li><a href="#">One more separated link</a></li>--}}
                     </ul>
                 </li>
-                <li class="active"><a href="{{route('transaction')}}">View Transactions</a></li>
+                <li class=""><a href="{{route('transaction')}}">View Transactions</a></li>
+
+                </li>
                 <li class="active"><a href="{{route('test')}}">Test <span class="sr-only">(current)</span></a></li>
 
 

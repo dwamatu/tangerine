@@ -13,52 +13,15 @@
                 <div class="row">
 
 
-                    <div class="col-md-3 col-md-offset-4 ">
-                        <div class="panel panel-default">
-                            <div class="panel-header">
-                                <h5> Add Client</h5>
-                            </div>
-                            <div class="panel-body">
-                                <form method="post" action="" enctype="multipart/form-data">
-
-                                    <div class="input-group">
-                                        <span class="input-group-addon input-sm"
-                                              id="sizing-addon2">Client Name</span>
-                                        <input type="text" class="form-control input-sm" name="client_name"
-                                               id="client_name"
-                                               aria-describedby="sizing-addon2">
-                                    </div>
-                                    <div class="form-group"></div>
-                                    <div class="input-group">
-                                        <span class="input-group-addon input-sm"
-                                              id="sizing-addon2">Client Contact</span>
-                                        <input type="text" class="form-control input-sm" name="client_contact"
-                                               id="client_contact" aria-describedby="sizing-addon2">
-                                    </div>
-                                    <div class="form-group"></div>
-                                    <div class="input-group">
-                                        <span class="input-group-addon input-sm"
-                                              id="sizing-addon2">Client Email</span>
-                                        <input type="email" class="form-control input-sm" name="client_email"
-                                               id="client_email" aria-describedby="sizing-addon2">
-                                    </div>
-
-                                    <div class="form-group"></div>
-                                    <div class="btn btn-group-sm">
-                                        <button class="btn btn-secondary input-sm" type="button" id="btn-addclient">Submit</button>
-                                    </div>
-                                    <input type="hidden" value="{{Session::token()}}" name="_token">
-                                </form>
-                            </div>
-                        </div>
-
-                    </div>
 
                 </div>
-                <section class="panel panel-default">
+
+            </div>
+            <section class="row">
+                <div class="panel panel-primary">
                     <div class="panel-heading"><h5>Client Information</h5></div>
                     <div class="panel-body">
-                        <table id="myTable" class="table table-hover table-bordered dataTable">
+                        <table id="myTable" class="table table-bordered table-stripped ClientsTable">
                             <thead>
                             <tr>
                                 <th>#</th>
@@ -66,7 +29,7 @@
                                 <th>Client Contact</th>
                                 <th>Client Email</th>
                                 <th>Update</th>
-                            </tr>
+                                </tr>
                             </thead>
                             <tbody>
                             @foreach($clients as $client)
@@ -84,6 +47,9 @@
                             </tbody>
                         </table>
                     </div>
+
+                </div>
+
                 </section>
             </div>
         </div>
@@ -127,6 +93,59 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <div class="modal fade" id="addclient_modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="panel-heading">
+                        <h5> Add Client</h5>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="panel panel-default">
+
+                        <div class="panel-body">
+                            <form method="post" action="" enctype="multipart/form-data">
+
+                                <div class="input-group">
+                                        <span class="input-group-addon input-sm"
+                                              id="sizing-addon2">Client Name</span>
+                                    <input type="text" class="form-control input-sm" name="client_name"
+                                           id="client_name"
+                                           aria-describedby="sizing-addon2">
+                                </div>
+                                <div class="form-group"></div>
+                                <div class="input-group">
+                                        <span class="input-group-addon input-sm"
+                                              id="sizing-addon2">Client Contact</span>
+                                    <input type="text" class="form-control input-sm" name="client_contact"
+                                           id="client_contact" aria-describedby="sizing-addon2">
+                                </div>
+                                <div class="form-group"></div>
+                                <div class="input-group">
+                                        <span class="input-group-addon input-sm"
+                                              id="sizing-addon2">Client Email</span>
+                                    <input type="email" class="form-control input-sm" name="client_email"
+                                           id="client_email" aria-describedby="sizing-addon2">
+                                </div>
+
+                                <div class="form-group"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="btn btn-group-sm">
+                        <button class="btn btn-primary input-sm" type="button" id="btn-addclient">Submit</button>
+                    </div>
+                    <input type="hidden" value="{{Session::token()}}" name="_token">
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
