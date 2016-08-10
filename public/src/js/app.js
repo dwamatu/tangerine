@@ -1,7 +1,50 @@
+//Register a new user
+$('#btn-registeruser').on('click', function () {
+    if ($.trim($('#email').val()) === "") {
+        generate('error', emailrequired);
+    }
+    else if ($.trim($('#username').val()) == "") {
+        generate('error', usernamerequired);
+    }
+    else if ($.trim($('#password').val()) == "") {
+        generate('error', passwordrequired);
+    }
+    else if ($.trim($('#confirm_password').val()) == "") {
+        generate('error', secondpasswordrequired);
+    }
+    else if ($.trim($('#role').val()) == "") {
+        generate('error', rolerequired);
+    }
+    else if ($.trim($('#password').val()) != $.trim($('#confirm_password').val())) {
+        generate('error', passwordmatch);
+    }
+    else {
+        $.ajax({
+            method: 'POST',
+            url: urlRegisterUser,
+            data: {
+                email: $.trim($('#email').val()),
+                username: $.trim($('#username').val()),
+                password: $.trim($('#password').val()),
+                confirm_password: $.trim($('#confirm_password').val()),
+                role: $.trim($('#role').val()),
+                _token: token
+            }
+
+        }).done(function (msg) {
+            console.log(JSON.stringify(msg));
+            generate('success', entrysuccessful);
+            $('#new_userform').modal('hide');
+
+        });
+    }
+
+});
+
+
 /*This pops up a modal that update the details of the site, if they need to be updated
  * Any user can only update sites they uploaded individually*/
 var siteId = 0;
-
 
 $('.odd').find('.edit').on('click', function (event) {
     event.preventDefault();
@@ -33,6 +76,7 @@ $('#site-modal-save').on('click', function () {
         }
     }).done(function (msg) {
         console.log(JSON.stringify(msg));
+
         $('#edit-modal').modal('hide');
     });
 });
@@ -56,7 +100,6 @@ $('.even').find('.update').on('click', function (event) {
  * */
 $('#record-transaction').on('click', function () {
     $.ajax({
-        method: 'POST',
         url: urlSaveTransaction,
         data: {
             site_id: $('#the-site-id').val(),
@@ -123,10 +166,10 @@ $('#btn-create-site').on('click', function () {
 
 $('#btn-signIn').on('click', function () {
 
-    if ($.trim($('#email').val()) === "") {
+    if ($.trim($('#signin_email').val()) === "") {
         generate('error', emailrequired);
     }
-    else if ($.trim($('#password').val()) == "") {
+    else if ($.trim($('#signin_password').val()) == "") {
         generate('error', passwordrequired);
     }
     else {
@@ -134,8 +177,8 @@ $('#btn-signIn').on('click', function () {
             method: 'POST',
             url: urlSignin,
             data: {
-                email: $.trim($('#email').val()),
-                password: $.trim($('#password').val()),
+                email: $.trim($('#signin_email').val()),
+                password: $.trim($('#signin_password').val()),
                 _token: token
             },
             success: function (msg) {
@@ -185,7 +228,7 @@ $('#btn-addclient').on('click', function () {
                  window.location.href = "http://tangerine.local/dashboard";
                  }, 1000);
                  */
-            },
+            }
         });
     }
 });

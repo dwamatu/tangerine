@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    public function userDash()
+    {
+        $users = User::all();
+        return view('users', ['users' => $users]);
+    }
 
 
     public function postSignUp(Request $request)
@@ -34,8 +39,8 @@ class UserController extends Controller
         $user-> role = $role;
 
         $user -> save();
-        
-        Auth::login($user);
+
+        /* Auth::login($user);*/
 
         return redirect()-> route('dashboard');
 

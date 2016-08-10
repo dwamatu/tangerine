@@ -5,9 +5,6 @@
 @endsection
 @section('content')
     @include('includes.message-block')
-
-
-
     <section class="row ">
         <!-- Main Content -->
         <div class="container-fluid">
@@ -27,8 +24,8 @@
                             <div class="panel-footer">
                                 <div class="options-box">
 
-                                    <input type="button" id="show-listings" value="Show Listings">
-                                    <input type="button" id="hide-listings" value="Hide Listings">
+                                    <input type="button" id="show-listings" value="Show All">
+                                    <input type="button" id="hide-listings" value="Hide Sites">
                                     <input type="button" id="toggle-drawing" value="Drawing Tools">
                                     <input type="text" id="zoom-to-area-text"
                                            placeholder="Enter your favorite area!">
@@ -36,14 +33,9 @@
                                     <input type="button" id="closed-listings" value="Show Closed">
                                     <input type="button" id="open-listings" value="Show Open">
                                     <input type="button" id="booked-listings" value="Show Booked">
-
                                 </div>
                             </div>
-
-
                         </div>
-
-
                     </div>
                     {{--Add site Form--}}
                     <div class=" col-md-3">
@@ -82,7 +74,6 @@
                                             <option value="StreetLight">Streetlight</option>
                                             <option value="Billboard">Billboard</option>
                                             <option value="Medium">Medium</option>
-
                                         </select>
                                     </div>
                                     <div class="form-group"></div>
@@ -99,25 +90,19 @@
                                         </button>
                                         <input type="hidden" value="{{Session::token()}}" name="_token">
                                     </div>
-
-
                                 </form>
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-
                     </div>
-
-
                 </div>
                 {{--DataTables Section--}}
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h5>Site Information</h5>
                     </div>
-
                     <div id="tabs">
                         <ul>
                             <li><a href="#tabs-1">All Sites</a></li>
@@ -138,20 +123,14 @@
                                 </thead>
                                 <tbody>
                                 @foreach($sites as $site)
-
-
                                     <tr role="row" class="odd">
-
                                         <td class="sorting_1">{{$site->id}}</td>
                                         <td>{{$site->landmark}}</td>
                                         <td>{{$site->latitude}}</td>
                                         <td>{{$site->longitude}}</td>
                                         <td>{{$site->size}}</td>
                                         <td>{{$site->status}}</td>
-
                                         <td><a class="edit" href="#">Update</a></td>
-
-
                                     </tr>
                                 @endforeach
                                 </tbody>
@@ -167,8 +146,6 @@
                                     <th rowspan="1" colspan="1">Edit</th>
                                 </tr>
                                 </tfoot>
-
-
                             </table>
                         </div>
                         <div id="tabs-2">
@@ -184,24 +161,17 @@
                                 </thead>
                                 <tbody>
                                 @foreach($sites as $site)
-
-
                                     <tr role="row" class="odd">
-
                                         <td class="sorting_1">{{$site->id}}</td>
                                         <td>{{$site->landmark}}</td>
                                         <td>{{$site->latitude}}</td>
                                         <td>{{$site->longitude}}</td>
                                         <td>{{$site->size}}</td>
                                         <td>{{$site->status}}</td>
-
                                         <td><a class="edit" href="#">Update</a></td>
-
-
                                     </tr>
                                 @endforeach
                                 </tbody>
-
                                 <tfoot>
                                 <tr>
                                     <th rowspan="1" colspan="1">Site ID</th>
@@ -213,8 +183,6 @@
                                     <th rowspan="1" colspan="1">Edit</th>
                                 </tr>
                                 </tfoot>
-
-
                             </table>
                         </div>
                         <div id="tabs-3">
@@ -230,24 +198,17 @@
                                 </thead>
                                 <tbody>
                                 @foreach($sites as $site)
-
-
                                     <tr role="row" class="odd">
-
                                         <td class="sorting_1">{{$site->id}}</td>
                                         <td>{{$site->landmark}}</td>
                                         <td>{{$site->latitude}}</td>
                                         <td>{{$site->longitude}}</td>
                                         <td>{{$site->size}}</td>
                                         <td>{{$site->status}}</td>
-
                                         <td><a class="edit" href="#">Update</a></td>
-
-
                                     </tr>
                                 @endforeach
                                 </tbody>
-
                                 <tfoot>
                                 <tr>
                                     <th rowspan="1" colspan="1">Site ID</th>
@@ -259,8 +220,6 @@
                                     <th rowspan="1" colspan="1">Edit</th>
                                 </tr>
                                 </tfoot>
-
-
                             </table>
                         </div>
                         <div id="tabs-4">
@@ -276,24 +235,17 @@
                                 </thead>
                                 <tbody>
                                 @foreach($sites as $site)
-
-
                                     <tr role="row" class="odd">
-
                                         <td class="sorting_1">{{$site->id}}</td>
                                         <td>{{$site->landmark}}</td>
                                         <td>{{$site->latitude}}</td>
                                         <td>{{$site->longitude}}</td>
                                         <td>{{$site->size}}</td>
                                         <td>{{$site->status}}</td>
-
                                         <td><a class="edit" href="#">Update</a></td>
-
-
                                     </tr>
                                 @endforeach
                                 </tbody>
-
                                 <tfoot>
                                 <tr>
                                     <th rowspan="1" colspan="1">Site ID</th>
@@ -305,8 +257,6 @@
                                     <th rowspan="1" colspan="1">Edit</th>
                                 </tr>
                                 </tfoot>
-
-
                             </table>
                         </div>
                     </div>
@@ -314,11 +264,8 @@
                     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
                     <script src="{{URL::to('src/js/styletabs.js')}}"></script>
                 </div>
-
             </div>
         </div>
-
-
     </section>
     <div class="modal fade" tabindex="-1" role="dialog" id="edit-modal">
         <div class="modal-dialog">
@@ -335,16 +282,13 @@
                             <input type="text" class="form-control input-sm" name="site-landmark" id="site-landmark">
                         </div>
                         <div class="form-group">
-
                         </div>
-
                         <div class="input-group">
                             <span class="input-group-addon input-sm" id="basic-addon1">Latitude</span>
                             <input type="text" class="form-control input-sm" name="site-latitude" id="site-latitude"
                                    disabled>
                         </div>
                         <div class="form-group">
-
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon input-sm" id="basic-addon1">Longitude</span>
@@ -361,9 +305,7 @@
                                 <option value="StreetLight">Streetlight</option>
                             </select>
                         </div>
-
                         <div class="form-group"></div>
-
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -377,9 +319,6 @@
     </div><!-- /.modal -->
 
     {{--Record Transaction Modal--}}
-
-
-
     <div class="modal fade bd-example-modal-sm" id="transaction-modal" tabindex="-1" role="dialog"
          aria-labelledby="mySmallModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm">
@@ -390,7 +329,7 @@
                         <div id="theid"></div>
                     </div>
                     <div class="panel-body">
-                        <form action="{{route('save.transaction')}}" method="post" class="form-group-sm">
+                        <form action="" method="post" class="form-group-sm">
                             <div class="input-group">
                                 <span class="input-group-addon input-sm">Site Id</span>
                                 <input type="text" id="the-site-id" name="the-site-id" class="form-control input-sm">
@@ -422,16 +361,13 @@
                                       placeholder="Comment"></textarea>
 
                             <div class="btn-group">
-                                <button class="btn btn-default input-sm" type="submit" id="record-transaction"> Record
+                                <button class="btn btn-default input-sm" type="button" id="record-transaction"> Record
                                 </button>
                                 <input type="hidden" name="_token" value="{{Session::token()}}">
                             </div>
-
                         </form>
                     </div>
                 </div>
-
-
             </div>
         </div>
 

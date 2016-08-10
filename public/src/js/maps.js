@@ -79,7 +79,6 @@ function initMap() {
     displayMarkers('all');
     $('#closed-listings').on('click', function () {
         displayMarkers('closed');
-
     });
     $('#open-listings').on('click', function () {
         displayMarkers('open');
@@ -89,7 +88,6 @@ function initMap() {
     });
     $('#show-listings').on('click', function () {
         displayMarkers('all');
-
     });
 
     function displayMarkers(status) {
@@ -198,7 +196,7 @@ function initMap() {
 
                     //Create a marker per location, and put into markers array
                     /*   console.log(status)*/
-                    ;
+
                     var marker = new google.maps.Marker({
                         map: map,
                         position: position,
@@ -209,7 +207,7 @@ function initMap() {
                         siteid: tmpSiteId
 
                     });
-                    // push the marker to our arrat of markers
+                    // push the marker to our array of markers
                     markers.push(marker);
 
                     // Create an onlick event to open an infowindow at each marker
@@ -227,7 +225,7 @@ function initMap() {
                     });
                     //Extend the boundaries of the map for each marker
 
-                    bounds.extend(markers[i].position);
+                    bounds.extend(marker.position);
                 }
                 /// Extend the boundaries of the map for each marker
                 map.fitBounds(bounds);
@@ -297,7 +295,7 @@ function initMap() {
                                 var panorama = new google.maps.StreetViewPanorama(
                                     document.getElementById('pano'), panoramaOptions);
                             } else {
-                                infowindow.setContent('<div>' + marker.title + '<br>' + marker.position + '</div>' +
+                                infowindow.setContent('<div><strong>' + marker.title + '</strong><br>' + marker.position + '</div>' +
                                     '<div>No Street View Found</div>' + '<input type="button" value="Manage Site" id="managesite">')
                             }
                             $("#theid").html(marker.title);
@@ -317,7 +315,7 @@ function initMap() {
                 }
 
                 // This function will loop through the markers array and display them all.
-                function showListings() {
+                /*  function showListings() {
                     var bounds = new google.maps.LatLngBounds();
                     // Extend the boundaries of the map for each marker and display the marker
                     for (var i = 0; i < markers.length; i++) {
@@ -325,7 +323,7 @@ function initMap() {
                         bounds.extend(markers[i].position);
                     }
                     map.fitBounds(bounds);
-                }
+                 }*/
 
                 // This function will loop through the listings and hide them all.
                 function hideListings() {
@@ -364,7 +362,7 @@ function initMap() {
 
                 //This Method record transactional events for each and every site.
                 // Events include Booking, Closing and Opening of a site.
-                function recordTransaction(p) {
+                function recordTransaction() {
 
                     $('#transaction-modal').modal();
                     //$("#theid").html(p);
@@ -425,10 +423,10 @@ function initMap() {
         var markerImage = new google.maps.MarkerImage(
             'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|' + markerColor +
             '|40|_|%E2%80%A2',
-            new google.maps.Size(21, 34),
+            new google.maps.Size(18, 28),
             new google.maps.Point(0, 0),
             new google.maps.Point(10, 34),
-            new google.maps.Size(21, 34));
+            new google.maps.Size(18, 28));
         return markerImage;
     }
 }

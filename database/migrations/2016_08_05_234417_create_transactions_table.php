@@ -1,7 +1,6 @@
 <?php
-
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateTransactionsTable extends Migration
 {
@@ -22,10 +21,8 @@ class CreateTransactionsTable extends Migration
             $table-> integer('duration');
             $table-> string('comments');
             $table->integer('user_id');
-
         });
     }
-
     /**
      * Reverse the migrations.
      *

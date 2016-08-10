@@ -26,12 +26,22 @@
         var emailrequired = '<div class="activity-item"> <i class="fa fa-tasks text-warning"r"></i> ' +
         '<div class="activity"> Email <a href="#">Required</a> ' +
         '</div> </div>';
+        var usernamerequired = '<div class="activity-item"> <i class="fa fa-tasks text-warning"r"></i> ' +
+            '<div class="activity"> Username <a href="#">Required</a> ' +
+            '</div> </div>';
         var passwordrequired = '<div class="activity-item"> <i class="fa fa-tasks text-warning"r"></i> ' +
         '<div class="activity"> Password <a href="#">Required</a> ' +
         '</div> </div>';
+        var passwordmatch = '<div class="activity-item"> <i class="fa fa-check text-success"></i> <div ' +
+            'class="activity">Passwords <a href="#">Do Not</a> <span>Match</span> </div> </div>';
+        var secondpasswordrequired = '<div class="activity-item"> <i class="fa fa-check text-success"></i> <div ' +
+            'class="activity">Second<a href="#"> Password</a> <span>Required</span> </div> </div>';
         var landmarkrequired = '<div class="activity-item"> <i class="fa fa-tasks text-warning"r"></i> ' +
         '<div class="activity"> Landmark <a href="#">Required</a> ' +
         '</div> </div>';
+        var rolerequired = '<div class="activity-item"> <i class="fa fa-tasks text-warning"r"></i> ' +
+            '<div class="activity"> Role <a href="#">Required</a> ' +
+            '</div> </div>';
         var longituderequired = '<div class="activity-item"> <i class="fa fa-tasks text-warning"r"></i> ' +
         '<div class="activity"> Longitude <a href="#">Required</a> ' +
         '</div> </div>';

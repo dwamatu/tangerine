@@ -23,9 +23,13 @@ Route::group(['middleware'=> ['web']],function (){
 
     Route::post('/signin', ['uses' => 'UserController@postSignIn', 'as' => 'signin']);
 
+    Route::get('/logout', ['uses' => 'UserController@getLogout', 'as' => 'logout']);
+
     Route::get('/dashboard', ['uses' => 'SiteController@getDashboard', 'as' => 'dashboard', 'middleware' => 'auth']);
 
-    Route::get('/logout', ['uses' => 'UserController@getLogout', 'as' => 'logout']);
+    Route::get('/users', ['uses' => 'UserController@userDash', 'as' => 'users'/*, 'middleware' => 'auth'*/]);
+
+
 
     Route::get('/clientdashboard', ['uses' => 'ClientController@getClientDashboard', 'as' => 'client.dashboard', 'middleware' => 'auth']);
 
