@@ -390,10 +390,10 @@
                         <div id="theid"></div>
                     </div>
                     <div class="panel-body">
-                        <form action="{{route('save.transaction')}}" method="post" class="form-group-sm">
+                        <form action="" method="post" class="form-group-sm">
                             <div class="input-group">
                                 <span class="input-group-addon input-sm">Site Id</span>
-                                <input type="text" id="the-site-id" name="the-site-id" class="form-control input-sm">
+                                <input type="text" id="thee-site-id" name="the-site-id" class="form-control input-sm">
                             </div>
                             <div class="input-group">
                                 <span class="input-group-addon input-sm ">Client Name</span>
@@ -422,7 +422,7 @@
                                       placeholder="Comment"></textarea>
 
                             <div class="btn-group">
-                                <button class="btn btn-default input-sm" type="submit" id="record-transaction"> Record
+                                <button class="btn btn-default input-sm" type="button" id="record-transaction">Record
                                 </button>
                                 <input type="hidden" name="_token" value="{{Session::token()}}">
                             </div>

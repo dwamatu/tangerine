@@ -1,3 +1,45 @@
+//Register a new user
+$('#btn-registeruser').on('click', function () {
+    if ($.trim($('#email').val()) === "") {
+        generate('error', emailrequired);
+    }
+    else if ($.trim($('#username').val()) == "") {
+        generate('error', usernamerequired);
+    }
+    else if ($.trim($('#password').val()) == "") {
+        generate('error', passwordrequired);
+    }
+    else if ($.trim($('#confirm_password').val()) == "") {
+        generate('error', secondpasswordrequired);
+    }
+    else if ($.trim($('#role').val()) == "") {
+        generate('error', rolerequired);
+    }
+    else if ($.trim($('#password').val()) != $.trim($('#confirm_password').val())) {
+        generate('error', passwordmatch);
+    }
+    else {
+        $.ajax({
+            method: 'POST',
+            url: urlRegisterUser,
+            data: {
+                email: $.trim($('#email').val()),
+                username: $.trim($('#username').val()),
+                password: $.trim($('#password').val()),
+                confirm_password: $.trim($('#confirm_password').val()),
+                role: $.trim($('#role').val()),
+                _token: token
+            }
+
+        }).done(function (msg) {
+            console.log(JSON.stringify(msg));
+            generate('success', entrysuccessful);
+            $('#new_userform').modal('hide');
+
+        });
+    }
+
+});
 /*This pops up a modal that update the details of the site, if they need to be updated
  * Any user can only update sites they uploaded individually*/
 var siteId = 0;
@@ -55,25 +97,46 @@ $('.even').find('.update').on('click', function (event) {
  * This saves transactions in the database
  * */
 $('#record-transaction').on('click', function () {
-    $.ajax({
-        method: 'POST',
-        url: urlSaveTransaction,
-        data: {
-            site_id: $('#the-site-id').val(),
-            clientname: $('#tmpclient_name').val(),
-            event: $('#event').val(),
-            transaction_date: $('#start_date').val(),
-            duration: $('#duration').val(),
-            comment: $('#comment').val(),
-            _token: token
-        }
-    }).done(function (msg) {
-        generate('success', notification_html[3]);
-        console.log(JSON.stringify(msg));
+    if ($.trim($('#thee-site-id').val()) === "") {
+        generate('error', siterequired);
+    }
+    else if ($.trim($('#tmpclient_name').val()) == "") {
+        generate('error', clientrequired);
+    }
+    else if ($.trim($('#event').val()) == "") {
+        generate('error', eventrequired);
+    }
+    else if ($.trim($('#start_date').val()) == "") {
+        generate('error', daterequired);
+    }
+    else if ($.trim($('#duration').val()) == "") {
+        generate('error', durationrequired);
+    }
+    else if ($.trim($('#comment').val()) == "") {
+        generate('error', commentrequired);
+    }
+    else {
 
-        $('#transaction-modal').modal('hide');
+        $.ajax({
+            method: 'POST',
+            url: urlSaveTransaction,
+            data: {
+                site_id: $('#thee-site-id').val(),
+                clientname: $('#tmpclient_name').val(),
+                event: $('#event').val(),
+                transaction_date: $('#start_date').val(),
+                duration: $('#duration').val(),
+                comment: $('#comment').val(),
+                _token: token
+            }
+        }).done(function (msg) {
+            generate('success', notification_html[3]);
+            console.log(JSON.stringify(msg));
 
-    });
+            $('#transaction-modal').modal('hide');
+
+        });
+    }
 });
 
 
@@ -84,12 +147,13 @@ $('#btn-create-site').on('click', function () {
     if ($.trim($('#landmark').val()) === "") {
         generate('error', landmarkrequired);
     }
-    else if ($.trim($('#longitude').val()) == "") {
-        generate('error', longituderequired);
-    }
     else if ($.trim($('#latitude').val()) == "") {
         generate('error', latituderequired);
     }
+    else if ($.trim($('#longitude').val()) == "") {
+        generate('error', longituderequired);
+    }
+
     else if ($.trim($('#size').val()) == "") {
         generate('error', sizerequired);
     }

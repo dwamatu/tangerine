@@ -49,4 +49,21 @@
         '<span>Required by Google Maps Api</span> </div> </div>';
         var entrysuccessful= '<div class="activity-item"> <i class="fa fa-shopping-cart text-success"></i>' +
             ' <div class="activity"> <a href="#">Entry</a> Successful ' + '<span>Tangerine</span> </div> </div>';
+        var siterequired = notification_html[0] = '<div class="activity-item"> <i class="fa fa-tasks text-warning"></i>' +
+            ' <div class="activity"> Missing <a href="#">Site</a> Id ' + ' </div> </div>';
 
+        var clientrequired = notification_html[0] = '<div class="activity-item"> <i class="fa fa-tasks text-warning"></i>' +
+            ' <div class="activity"> Client <a href="#">Name</a> Required ' + ' </div> </div>';
+
+        var eventrequired = '<div class="activity-item"> <i class="fa fa-tasks text-warning"r"></i> ' +
+            '<div class="activity"> Event <a href="#">Required</a> ' +
+            '</div> </div>';
+        var daterequired = '<div class="activity-item"> <i class="fa fa-tasks text-warning"r"></i> ' +
+            '<div class="activity"> Date <a href="#">Required</a> ' +
+            '</div> </div>';
+        var durationrequired = '<div class="activity-item"> <i class="fa fa-tasks text-warning"r"></i> ' +
+            '<div class="activity"> Duration <a href="#">Required</a> ' +
+            '</div> </div>';
+        var commentrequired = '<div class="activity-item"> <i class="fa fa-tasks text-warning"r"></i> ' +
+            '<div class="activity"> Comment <a href="#">Required</a> ' +
+            '</div> </div>';

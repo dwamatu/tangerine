@@ -301,7 +301,7 @@ function initMap() {
                                     '<div>No Street View Found</div>' + '<input type="button" value="Manage Site" id="managesite">')
                             }
                             $("#theid").html(marker.title);
-                            $("#the-site-id").val(marker.siteid);
+                            $("#thee-site-id").val(marker.siteid);
 
                             document.getElementById('managesite').addEventListener('click', recordTransaction);
                         }
