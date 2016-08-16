@@ -33,6 +33,7 @@
 <script src="{{URL::to('/src/js/jquery.noty.packaged.js')}}"></script>
 <script src="{{URL::to('src/css/bootstrap-3.3.7-dist/js/bootstrap.min.js')}}"></script>
 <script src="{{URL::to('src/js/jquery.dataTables.min.js')}}"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.2.1/js/dataTables.buttons.min.js"></script>
 <script src="//cdn.datatables.net/buttons/1.2.1/js/buttons.flash.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>

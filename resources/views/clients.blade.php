@@ -6,17 +6,10 @@
 @section('content')
 
     <section class="row ">
+        <div class="container-fluid">
         <!-- Main Content -->
         <div class="main-content">
-            <div class="container-fluid">
 
-                <div class="row">
-
-
-
-                </div>
-
-            </div>
             <section class="row">
                 <div class="panel panel-primary">
                     <div class="panel-heading"><h5>Client Information</h5></div>
@@ -54,9 +47,6 @@
             </div>
         </div>
 
-
-        </div>
-        </div>
 
     </section>
     <div class="modal fade" tabindex="-1" role="dialog" id="client-modal">

@@ -67,3 +67,12 @@
         var commentrequired = '<div class="activity-item"> <i class="fa fa-tasks text-warning"r"></i> ' +
             '<div class="activity"> Comment <a href="#">Required</a> ' +
             '</div> </div>';
+        var invalidtransaction = '<div class="activity-item"> <i class="fa fa-tasks text-warning"r"></i> ' +
+            '<div class="activity"> Invalid <a href="#">Transaction</a> ' +
+            '</div> </div>';
+        var siteclosed = '<div class="activity-item"> <i class="fa fa-tasks text-warning"r"></i> ' +
+            '<div class="activity"> Site <a href="#"> Closed</a> ' +
+            '</div> </div>';
+        var sitebooked = '<div class="activity-item"> <i class="fa fa-tasks text-warning"r"></i> ' +
+            '<div class="activity"> Site <a href="#"> Booked</a> ' +
+            '</div> </div>';

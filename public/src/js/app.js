@@ -30,12 +30,10 @@ $('#btn-registeruser').on('click', function () {
                 role: $.trim($('#role').val()),
                 _token: token
             }
-
         }).done(function (msg) {
             console.log(JSON.stringify(msg));
             generate('success', entrysuccessful);
             $('#new_userform').modal('hide');
-
         });
     }
 
@@ -88,35 +86,64 @@ $('.even').find('.update').on('click', function (event) {
     var clientEmail = event.target.parentNode.parentNode.children[3].textContent;
     $('#clientname').val(clientName);
     $('#clientcontact').val(clientContact);
-    $('#clientemail').val(clientEmail)
+    $('#clientemail').val(clientEmail);
     $('#client-modal').modal();
-
-
 });
+
 /*
- * This saves transactions in the database
+ * This Processes transactions in the to be recorded in the database
  * */
 $('#record-transaction').on('click', function () {
-    if ($.trim($('#thee-site-id').val()) === "") {
-        generate('error', siterequired);
-    }
-    else if ($.trim($('#tmpclient_name').val()) == "") {
-        generate('error', clientrequired);
-    }
-    else if ($.trim($('#event').val()) == "") {
-        generate('error', eventrequired);
-    }
-    else if ($.trim($('#start_date').val()) == "") {
-        generate('error', daterequired);
-    }
-    else if ($.trim($('#duration').val()) == "") {
-        generate('error', durationrequired);
-    }
-    else if ($.trim($('#comment').val()) == "") {
-        generate('error', commentrequired);
-    }
-    else {
+    //Gets the Id of the Site being Transacted
+    //Passes the id to the Get Site that checks the status id of the transaction
+    var id = $.trim($('#thee-site-id').val());
+    //Gets the status_id of the Site being transacted and passes it to the Check Status Funtion that validates if a site is open
+    getSite(id);
+    //Checks if the status is open
+    //Then calls the Validate function
+    function checkStatus(status) {
 
+        if (status === "Closed") {
+            generate('error', siteclosed);
+        }
+        else if (status === "Booked") {
+            /*getExpiryDate(id);*/
+            generate('error', sitebooked);
+        } else {
+            //Initiates the validate function
+            validate();
+        }
+    }
+
+    //Validates that the data
+    //Passes the data to the Save function
+    function validate() {
+        if ($.trim($('#thee-site-id').val()) === "") {
+            generate('error', siterequired);
+        }
+        else if ($.trim($('#tmpclient_name').val()) == "") {
+            generate('error', clientrequired);
+        }
+        else if ($.trim($('#event').val()) == "") {
+            generate('error', eventrequired);
+        }
+        else if ($.trim($('#start_date').val()) == "") {
+            generate('error', daterequired);
+        }
+        else if ($.trim($('#duration').val()) == "") {
+            generate('error', durationrequired);
+        }
+        else if ($.trim($('#comment').val()) == "") {
+            generate('error', commentrequired);
+        } else {
+            //Calls the save function
+            save();
+        }
+    }
+
+    //Save a transaction in the database.
+    //Passes the valid data fields into the database
+    function save() {
         $.ajax({
             method: 'POST',
             url: urlSaveTransaction,
@@ -134,7 +161,49 @@ $('#record-transaction').on('click', function () {
             console.log(JSON.stringify(msg));
 
             $('#transaction-modal').modal('hide');
+        });
+    }
 
+    //Gets the status_id of a site from the sites  table\
+    function getSite(id) {
+        var URL = 'http://tangerine.local/fetchSite/' + id;
+        $.ajax({
+            method: 'GET',
+            url: URL,
+            success: function (data) {
+                var k = JSON.parse(data);
+                //Passes the status id to the Get Status name function
+                getStatusName(k.status_id);
+            }
+        });
+    }
+
+    //Gets the status name from the Status Table
+    //Returns the status name to the check status function.
+    function getStatusName(id) {
+        var URL = 'http://tangerine.local/fetchStatus/' + id;
+        $.ajax({
+            method: 'GET',
+            url: URL,
+            success: function (data) {
+                var k = JSON.parse(data);
+                // Initiates the checkstatus function that checks to see if a site is open/closed or Booked
+                checkStatus(k.status);
+            }
+        });
+
+    }
+
+    //Checks the expiry of a site.
+    function getExpiryDate(id) {
+        var url = 'http://tangerine.local/fetchExpiry/' + id;
+        $.ajax({
+            method: 'GET',
+            url: URL,
+            success: function (data) {
+                var k = JSON.parse(data);
+                console.log(k.expiry_date);
+            }
         });
     }
 });
@@ -254,9 +323,43 @@ $('#btn-addclient').on('click', function () {
     }
 });
 
+//Append Status values on the Select field on the Transaction Modal
+$('#event').empty();
+$.ajax({
+    type: "GET",
+    url: "http://tangerine.local/getStatus",
+    data: {'status': status},
+    success: function (data) {
+        // Parse the returned json data
+        var opts = $.parseJSON(data);
+        // console.log(data);
+        // Use jQuery's each to iterate over the opts value
+        $.each(opts, function (i, d) {
+            // You will need to alter the below to get the right values from your json object.  Guessing that d.id / d.modelName are columns in your carModels data
+            $('#event').append('<option value="' + d.id + '">' + d.status + '</option>');
+        });
+    }
+});
+
+//Append Status values for Creating a site
 
 
-
+$('#status').empty();
+$.ajax({
+    type: "GET",
+    url: "http://tangerine.local/getStatus",
+    data: {'status': status},
+    success: function (data) {
+        // Parse the returned json data
+        var opts = $.parseJSON(data);
+        // console.log(data);
+        // Use jQuery's each to iterate over the opts value
+        $.each(opts, function (i, d) {
+            // You will need to alter the below to get the right values from your json object.  Guessing that d.id / d.modelName are columns in your carModels data
+            $('#status').append('<option value="' + d.id + '">' + d.status + '</option>');
+        });
+    }
+});
 
 
 

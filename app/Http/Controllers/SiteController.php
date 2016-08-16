@@ -23,6 +23,8 @@ class SiteController extends Controller
 
     }
 
+//this function creates a new site
+
     public function siteCreateSite(Request $request)
     {
         $this->validate($request, [
@@ -38,7 +40,7 @@ class SiteController extends Controller
         $site->longitude = $request['longitude'];
         $site->latitude = $request['latitude'];
         $site->size = $request['size'];
-        $site->status = $request['status'];
+        $site->status_id = $request['status'];
 
         $message = "There was an error";
 
@@ -49,6 +51,8 @@ class SiteController extends Controller
 
 
     }
+
+//      This function updates the details of a site
 
     public function siteEditSite(Request $request)
     {
@@ -81,26 +85,32 @@ class SiteController extends Controller
         echo $sites;
 
     }
+//    This function gets all open sites
+//   To be displayed on the map
+
 
     public function getOpen()
     {
-        $sites = json_encode(DB::table('sites')->where('status', 'Open')->get());
+        $sites = json_encode(DB::table('sites')->where('status_id', '1')->get());
         /* dd($sites);*/
         echo $sites;
 
     }
 
+//  This function gets all closed sites.
+//   To be displayed on the map
     public function getClosed()
     {
-        $sites = json_encode(DB::table('sites')->where('status', 'Closed')->get());
+        $sites = json_encode(DB::table('sites')->where('status_id', '2')->get());
         /* dd($sites);*/
         echo $sites;
-
     }
 
+//   This function gets all booked sites from the database.
+//   To be displayed on the map
     public function getBooked()
     {
-        $sites = json_encode(DB::table('sites')->where('status', 'Booked')->get());
+        $sites = json_encode(DB::table('sites')->where('status_id', '3')->get());
         /* dd($sites);*/
         echo $sites;
 
@@ -115,6 +125,13 @@ class SiteController extends Controller
         foreach ($siteLandmarks as $siteLandmark) {
             echo $siteLandmark;
         }
+    }
+
+    public function fetchSite($s)
+    {
+        $site = json_encode(DB::table('sites')->
+        where('id', $s)->first());
+        echo $site;
     }
 
 }

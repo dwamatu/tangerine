@@ -9,6 +9,12 @@
 
 
     <section class="row ">
+        <style>
+            .map_pad {
+                padding: 3px !important;
+            }
+
+        </style>
         <!-- Main Content -->
         <div class="container-fluid">
             <div class="main-content">
@@ -17,7 +23,7 @@
                     <div class="col-md-9">
                         <div class="panel panel-default">
 
-                            <div class="panel-body">
+                            <div class="panel-body map_pad">
                                 {{--Google Maps API--}}
 
                                 <div id="map" style="height:500px;">
@@ -47,7 +53,7 @@
                     </div>
                     {{--Add site Form--}}
                     <div class=" col-md-3">
-                        <div class="panel panel-primary">
+                        <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h5>Add Site</h5>
                             </div>
@@ -113,7 +119,7 @@
 
                 </div>
                 {{--DataTables Section--}}
-                <div class="panel panel-primary">
+                <div class="panel panel-default">
                     <div class="panel-heading">
                         <h5>Site Information</h5>
                     </div>
@@ -147,7 +153,7 @@
                                         <td>{{$site->latitude}}</td>
                                         <td>{{$site->longitude}}</td>
                                         <td>{{$site->size}}</td>
-                                        <td>{{$site->status}}</td>
+                                        <td>{{$site->status->status}}</td>
 
                                         <td><a class="edit" href="#">Update</a></td>
 
@@ -193,8 +199,7 @@
                                         <td>{{$site->latitude}}</td>
                                         <td>{{$site->longitude}}</td>
                                         <td>{{$site->size}}</td>
-                                        <td>{{$site->status}}</td>
-
+                                        <td>{{$site->status_id}}</td>
                                         <td><a class="edit" href="#">Update</a></td>
 
 
@@ -220,7 +225,7 @@
                         <div id="tabs-3">
                             <table id="vTable3" class="table table-hover table-bordered viewTable">
                                 <thead>
-                                <th>Site ID</th>
+                                <th>#</th>
                                 <th>Landmark</th>
                                 <th>Latitude</th>
                                 <th>Longitude</th>
@@ -239,7 +244,7 @@
                                         <td>{{$site->latitude}}</td>
                                         <td>{{$site->longitude}}</td>
                                         <td>{{$site->size}}</td>
-                                        <td>{{$site->status}}</td>
+                                        <td>{{$site->status->status}}</td>
 
                                         <td><a class="edit" href="#">Update</a></td>
 
@@ -266,7 +271,7 @@
                         <div id="tabs-4">
                             <table id="vTable4" class="table table-hover table-bordered viewTable">
                                 <thead>
-                                <th>Site ID</th>
+                                <th>#</th>
                                 <th>Landmark</th>
                                 <th>Latitude</th>
                                 <th>Longitude</th>
@@ -285,7 +290,7 @@
                                         <td>{{$site->latitude}}</td>
                                         <td>{{$site->longitude}}</td>
                                         <td>{{$site->size}}</td>
-                                        <td>{{$site->status}}</td>
+                                        <td>{{$site->status->status}}</td>
 
                                         <td><a class="edit" href="#">Update</a></td>
 
@@ -391,7 +396,7 @@
                 <div class="panel panel-default-sm">
                     <div class="panel-heading">
                         <h5> Manage Sites</h5>
-                        {{--  <div id="theid"></div>--}}
+
                     </div>
                     <div class="panel-body">
                         <form action="" method="post" class="form-group-sm">
@@ -399,6 +404,12 @@
                                 <span class="input-group-addon input-sm ">Site Id</span>
                                 <input type="text" id="thee-site-id" name="the-site-id" class="form-control input-sm">
                             </div>
+
+                            <input type="text" id="thee-site-status" name="thee-site-status"
+                                   class="form-control input-sm">
+                            <input type="text" id="thee-expiry-date" name="thee-expiry-date"
+                                   class="form-control input-sm">
+
                             <div class="input-group extrapadd">
                                 <span class="input-group-addon input-sm">Client Name</span>
                                 <input type="text" class="form-control input-sm typeahead" id="tmpclient_name"
@@ -407,10 +418,7 @@
                             <div class="input-group extrapadd">
                                 <span class="input-group-addon input-sm">Event</span>
                                 <select class="form-control input-sm" name="event" id="event">
-                                    <option value=""></option>
-                                    <option value="Booked">Booking</option>
-                                    <option value="Closed">Closing</option>
-                                    <option value="Open">Open</option>
+
                                 </select>
                             </div>
                             <div class="input-group extrapadd">

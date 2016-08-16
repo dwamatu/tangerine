@@ -33,4 +33,9 @@ Route::group(['middleware'=> ['web']],function (){
     Route::get('/getOpen', ['uses' => 'SiteController@getOpen', 'as' => 'open.sites']);
     Route::get('/getClosed', ['uses' => 'SiteController@getClosed', 'as' => 'closed.sites']);
     Route::get('/getBooked', ['uses' => 'SiteController@getBooked', 'as' => 'booked.sites']);
+    Route::get('/getStatus', ['uses' => 'TransactionController@getStatus', 'as' => 'check.status']);
+
+    Route::get('/fetchStatus/{p}', ['uses' => 'TransactionController@fetchStatus', 'as' => 'fetch.status']);
+    Route::get('/fetchExpiry/{t}', ['uses' => 'TransactionController@fetchExpiry', 'as' => 'fetch.expiry']);
+    Route::get('/fetchSite/{s}', ['uses' => 'SiteController@fetchSite', 'as' => 'fetch.Site']);
 });

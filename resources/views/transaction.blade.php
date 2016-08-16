@@ -22,17 +22,20 @@
                             <div id="tabs-1">
                                 <table id="myTable" class="table table-hover table-bordered table-stripped dataTable">
                                     <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Site Name</th>
-                                        <th>Client Name</th>
-                                        <th>Event</th>
-                                        <th>Transaction Date</th>
-                                        <th>Expiry Date</th>
-                                        <th>Duration</th>
-                                        <th>Comment</th>
-                                        <th>By</th>
-                                    </tr>
+
+
+                                    <th>#</th>
+                                    <th>Site Name</th>
+                                    <th>Client Name</th>
+                                    <th>Event</th>
+                                    <th>Transaction Date</th>
+                                    <th>Expiry Date</th>
+                                    <th>Duration</th>
+                                    <th>Comment</th>
+                                    <th>By</th>
+                                    <th>Revoke</th>
+
+
                                     </thead>
                                     <tbody>
                                     @foreach($transactions as $transaction)
@@ -41,18 +44,32 @@
                                             <td>{{$transaction->id}}</td>
                                             <td>{{$transaction->site->landmark}}</td>
                                             <td>{{$transaction->client->client_name}}</td>
-                                            <td>{{$transaction->event}}</td>
+                                            <td>{{$transaction->status->status}}</td>
                                             <td>{{$transaction->transaction_date}}</td>
                                             <td>{{$transaction->expiry_date}}</td>
                                             <td>{{$transaction->duration}} days</td>
                                             <td>{{$transaction->comments}}</td>
                                             <td>{{$transaction->user->username}}</td>
-                                            {{--<td><a class="update" href="">update</a></td>--}}
+                                            <td><a class="revoke" href="">Revoke</a></td>
                                         </tr>
 
 
                                     @endforeach
                                     </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <th rowspan="1" colspan="1">#</th>
+                                        <th rowspan="1" colspan="1">Site Name</th>
+                                        <th rowspan="1" colspan="1">Client Name</th>
+                                        <th rowspan="1" colspan="1">Event</th>
+                                        <th rowspan="1" colspan="1">Transaction Date</th>
+                                        <th rowspan="1" colspan="1">Expiry Date</th>
+                                        <th rowspan="1" colspan="1">Duration</th>
+                                        <th rowspan="1" colspan="1">Comment</th>
+                                        <th rowspan="1" colspan="1">By</th>
+
+                                    </tr>
+                                    </tfoot>
                                 </table>
 
 
@@ -61,17 +78,20 @@
 
                                 <table id="myTable2" class="table table-hover table-bordered table-stripped dataTable">
                                     <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Site Name</th>
-                                        <th>Client Name</th>
-                                        <th>Event</th>
-                                        <th>Transaction Date</th>
-                                        <th>Expiry Date</th>
-                                        <th>Duration</th>
-                                        <th>Comment</th>
-                                        <th>By</th>
-                                    </tr>
+
+
+                                    <th>#</th>
+                                    <th>Site Name</th>
+                                    <th>Client Name</th>
+                                    <th>Event</th>
+                                    <th>Transaction Date</th>
+                                    <th>Expiry Date</th>
+                                    <th>Duration</th>
+                                    <th>Comment</th>
+                                    <th>By</th>
+                                    <th>Revoke</th>
+
+
                                     </thead>
                                     <tbody>
                                     @foreach($transactions as $transaction)
@@ -80,17 +100,32 @@
                                             <td>{{$transaction->id}}</td>
                                             <td>{{$transaction->site->landmark}}</td>
                                             <td>{{$transaction->client->client_name}}</td>
-                                            <td>{{$transaction->event}}</td>
+                                            <td>{{$transaction->status->status}}</td>
                                             <td>{{$transaction->transaction_date}}</td>
+                                            <td>{{$transaction->expiry_date}}</td>
                                             <td>{{$transaction->duration}} days</td>
                                             <td>{{$transaction->comments}}</td>
                                             <td>{{$transaction->user->username}}</td>
-                                            {{--<td><a class="update" href="">update</a></td>--}}
+                                            <td><a class="revoke" href="">Revoke</a></td>
                                         </tr>
 
 
                                     @endforeach
                                     </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <th rowspan="1" colspan="1">#</th>
+                                        <th rowspan="1" colspan="1">Site Name</th>
+                                        <th rowspan="1" colspan="1">Client Name</th>
+                                        <th rowspan="1" colspan="1">Event</th>
+                                        <th rowspan="1" colspan="1">Transaction Date</th>
+                                        <th rowspan="1" colspan="1">Expiry Date</th>
+                                        <th rowspan="1" colspan="1">Duration</th>
+                                        <th rowspan="1" colspan="1">Comment</th>
+                                        <th rowspan="1" colspan="1">By</th>
+
+                                    </tr>
+                                    </tfoot>
                                 </table>
 
 
@@ -98,16 +133,20 @@
                             <div id="tabs-3">
                                 <table id="myTable3" class="table table-hover table-bordered table-stripped dataTable">
                                     <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Site Name</th>
-                                        <th>Client Name</th>
-                                        <th>Event</th>
-                                        <th>Transaction Date</th>
-                                        <th>Duration</th>
-                                        <th>Comment</th>
-                                        <th>By</th>
-                                    </tr>
+
+
+                                    <th>#</th>
+                                    <th>Site Name</th>
+                                    <th>Client Name</th>
+                                    <th>Event</th>
+                                    <th>Transaction Date</th>
+                                    <th>Expiry Date</th>
+                                    <th>Duration</th>
+                                    <th>Comment</th>
+                                    <th>By</th>
+                                    <th>Revoke</th>
+
+
                                     </thead>
                                     <tbody>
                                     @foreach($transactions as $transaction)
@@ -116,17 +155,32 @@
                                             <td>{{$transaction->id}}</td>
                                             <td>{{$transaction->site->landmark}}</td>
                                             <td>{{$transaction->client->client_name}}</td>
-                                            <td>{{$transaction->event}}</td>
+                                            <td>{{$transaction->status->status}}</td>
                                             <td>{{$transaction->transaction_date}}</td>
+                                            <td>{{$transaction->expiry_date}}</td>
                                             <td>{{$transaction->duration}} days</td>
                                             <td>{{$transaction->comments}}</td>
                                             <td>{{$transaction->user->username}}</td>
-                                            {{--<td><a class="update" href="">update</a></td>--}}
+                                            <td><a class="revoke" href="#">Revoke</a></td>
                                         </tr>
 
 
                                     @endforeach
                                     </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <th rowspan="1" colspan="1">#</th>
+                                        <th rowspan="1" colspan="1">Site Name</th>
+                                        <th rowspan="1" colspan="1">Client Name</th>
+                                        <th rowspan="1" colspan="1">Event</th>
+                                        <th rowspan="1" colspan="1">Transaction Date</th>
+                                        <th rowspan="1" colspan="1">Expiry Date</th>
+                                        <th rowspan="1" colspan="1">Duration</th>
+                                        <th rowspan="1" colspan="1">Comment</th>
+                                        <th rowspan="1" colspan="1">By</th>
+
+                                    </tr>
+                                    </tfoot>
                                 </table>
 
 
@@ -135,16 +189,20 @@
 
                                 <table id="myTable4" class="table table-hover table-bordered table-stripped dataTable">
                                     <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Site Name</th>
-                                        <th>Client Name</th>
-                                        <th>Event</th>
-                                        <th>Transaction Date</th>
-                                        <th>Duration</th>
-                                        <th>Comment</th>
-                                        <th>By</th>
-                                    </tr>
+
+
+                                    <th>#</th>
+                                    <th>Site Name</th>
+                                    <th>Client Name</th>
+                                    <th>Event</th>
+                                    <th>Transaction Date</th>
+                                    <th>Expiry Date</th>
+                                    <th>Duration</th>
+                                    <th>Comment</th>
+                                    <th>By</th>
+                                    <th>Revoke</th>
+
+
                                     </thead>
                                     <tbody>
                                     @foreach($transactions as $transaction)
@@ -153,17 +211,32 @@
                                             <td>{{$transaction->id}}</td>
                                             <td>{{$transaction->site->landmark}}</td>
                                             <td>{{$transaction->client->client_name}}</td>
-                                            <td>{{$transaction->event}}</td>
+                                            <td>{{$transaction->status->status}}</td>
                                             <td>{{$transaction->transaction_date}}</td>
+                                            <td>{{$transaction->expiry_date}}</td>
                                             <td>{{$transaction->duration}} days</td>
                                             <td>{{$transaction->comments}}</td>
                                             <td>{{$transaction->user->username}}</td>
-                                            {{--<td><a class="update" href="">update</a></td>--}}
+                                            <td><a class="revoke" href="">Revoke</a></td>
                                         </tr>
 
 
                                     @endforeach
                                     </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <th rowspan="1" colspan="1">#</th>
+                                        <th rowspan="1" colspan="1">Site Name</th>
+                                        <th rowspan="1" colspan="1">Client Name</th>
+                                        <th rowspan="1" colspan="1">Event</th>
+                                        <th rowspan="1" colspan="1">Transaction Date</th>
+                                        <th rowspan="1" colspan="1">Expiry Date</th>
+                                        <th rowspan="1" colspan="1">Duration</th>
+                                        <th rowspan="1" colspan="1">Comment</th>
+                                        <th rowspan="1" colspan="1">By</th>
+
+                                    </tr>
+                                    </tfoot>
                                 </table>
 
 

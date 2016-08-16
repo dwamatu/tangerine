@@ -18,4 +18,11 @@ class Transaction extends Model
         return $this-> belongsTo('App\Site');
     }
 
+    public function status()
+    {
+
+        return $this->belongsTo('App\Status');
+    }
+
+
 }

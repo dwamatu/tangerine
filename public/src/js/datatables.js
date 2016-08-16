@@ -7,8 +7,8 @@ $('.dataTable').DataTable({
 
 });
 
-$('#myTable2').DataTable().search('Close').draw();
-$('#myTable3').DataTable().search('Book').draw();
+$('#myTable2').DataTable().search('Closed').draw();
+$('#myTable3').DataTable().search('Booked').draw();
 $('#myTable4').DataTable().search('Open').draw();
 
 

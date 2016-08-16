@@ -5,75 +5,40 @@
 @endsection
 @section('content')
     @include('includes.message-block')
+    <section class="row" style="padding-top: 40px">
 
 
-    <div class="row ">
-        <!-- Main Content -->
-        <div class="container-fluid">
-            <div class="main-content">
+        <div class="row">
+            <div class="col-md-3 col-md-offset-3">
 
 
-                <div class="customContainer" id="customContainer"></div>
+                <select class="form-control" name="teststatus" id="teststatus">
 
-                <style>
-                    .customContainer {
-                        padding-top: 100px;
-                        margin-top: 10px;
-
-                    }
-                </style>
-
-            </div>
-        </div>
+                </select>
     </div>
-
+        </div>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="{{URL::to('/src/js/jquery.noty.packaged.js')}}"></script>
+        <script>
 
-
-    <script type="text/javascript">
-
-
-        function generate(type, text) {
-
-            var n = noty({
-                text: text,
-                type: type,
-                dismissQueue: true,
-                layout: 'topLeft',
-                closeWith: ['click'],
-                theme: 'relax',
-                maxVisible: 10,
-                timeout: '4000',
-                animation: {
-                    open: 'animated bounceInLeft',
-                    close: 'animated bounceOutLeft',
-                    easing: 'swing',
-                    speed: 500
+            $('#teststatus').empty();
+            /* var dropDown = document.getElementById("carId");
+             var carId = dropDown.options[dropDown.selectedIndex].value;*/
+            $.ajax({
+                type: "GET",
+                url: "http://tangerine.local/getStatus",
+                data: {'status': status},
+                success: function (data) {
+                    // Parse the returned json data
+                    var opts = $.parseJSON(data);
+                    console.log(data);
+                    // Use jQuery's each to iterate over the opts value
+                    $.each(opts, function (i, d) {
+                        // You will need to alter the below to get the right values from your json object.  Guessing that d.id / d.modelName are columns in your carModels data
+                        $('#teststatus').append('<option value="' + d.id + '">' + d.status + '</option>');
+                    });
                 }
             });
-            console.log('html: ' + n.options.id);
-        }
-
-        function generateError() {
-            var notification_html = '<div class="activity-item"> <i class="fa fa-check text-success"></i> ' +
-                    '<div class="activity">You must  <a href="#">enter an area or address</a> ' +
-                    '<span>Required by Google Maps Api</span> </div> </div>';
-
-            generate('error', notification_html);
-
-        }
-
-        $(document).ready(function () {
-
-            setTimeout(function () {
-                generateError();
-            }, 500);
-
-        });
 
     </script>
-
-
-
+    </section>
 @endsection

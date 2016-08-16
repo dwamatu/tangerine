@@ -19,4 +19,12 @@ class Site extends Model
     {
         return $this->hasOne('App\Transaction');
     }
+
+    public function status()
+    {
+
+        return $this->belongsTo('App\Status');
+    }
+
+
 }

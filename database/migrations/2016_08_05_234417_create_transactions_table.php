@@ -17,7 +17,7 @@ class CreateTransactionsTable extends Migration
             $table->timestamps();
             $table-> integer('site_id');
             $table-> integer('client_id');
-            $table-> text('event');
+            $table->integer('status_id');
             $table-> date('transaction_date');
             $table->date('expiry_date');
             $table-> integer('duration');

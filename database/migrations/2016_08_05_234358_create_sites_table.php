@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateSitesTable extends Migration
 {
@@ -19,7 +19,7 @@ class CreateSitesTable extends Migration
             $table->double('longitude') ;
             $table->double('latitude');
             $table->text('size');
-            $table->text('status');
+            $table->integer('status_id');
             $table->integer('user_id');
 
 

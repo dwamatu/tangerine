@@ -76,6 +76,71 @@ function initMap() {
             ]
         }
     ];
+    // Create a styles array to use with the map.
+    var style2 = [
+        {
+            "elementType": "geometry",
+            "stylers": [{"hue": "#ff4400"},
+                {"saturation": -68},
+                {"lightness": -4},
+                {"gamma": 0.72}]
+        },
+        {
+            "featureType": "road",
+            "elementType": "labels.icon"
+        },
+        {
+            "featureType": "landscape.man_made",
+            "elementType": "geometry",
+            "stylers": [{"hue": "#0077ff"}, {"gamma": 3.1}]
+        },
+        {
+            "featureType": "water",
+            "stylers": [{"hue": "#00ccff"},
+                {"gamma": 0.44},
+                {"saturation": -33}]
+        },
+        {
+            "featureType": "poi.park",
+            "stylers": [{"hue": "#44ff00"},
+                {"saturation": -23}]
+        },
+        {
+            "featureType": "water",
+            "elementType": "labels.text.fill",
+            "stylers": [{"hue": "#007fff"},
+                {"gamma": 0.77},
+                {"saturation": 65},
+                {"lightness": 99}]
+        },
+        {
+            "featureType": "water",
+            "elementType": "labels.text.stroke",
+            "stylers": [{"gamma": 0.11},
+                {"weight": 5.6},
+                {"saturation": 99},
+                {"hue": "#0091ff"},
+                {"lightness": -86}]
+        },
+        {
+            "featureType": "transit.line",
+            "elementType": "geometry",
+            "stylers": [{"lightness": -48},
+                {"hue": "#ff5e00"},
+                {"gamma": 1.2},
+                {"saturation": -23}]
+        },
+        {
+            "featureType": "transit",
+            "elementType": "labels.text.stroke",
+            "stylers": [{"saturation": -64},
+                {"hue": "#ff9100"},
+                {"lightness": 16},
+                {"gamma": 0.47},
+                {"weight": 2.7}]
+        }];
+
+
     displayMarkers('all');
     $('#closed-listings').on('click', function () {
         displayMarkers('closed');
@@ -91,6 +156,7 @@ function initMap() {
         displayMarkers('all');
 
     });
+    //This function displays markers according to their different statuses.
 
     function displayMarkers(status) {
 
@@ -141,7 +207,7 @@ function initMap() {
                                 lat: parseFloat(k.latitude),
                                 lng: parseFloat(k.longitude)
                             },
-                            stat: k.status,
+                            stat: k.status_id,
                             markernumber: k.id
 
 
@@ -154,7 +220,7 @@ function initMap() {
                 map = new google.maps.Map(document.getElementById('map'), {
                     center: {lat: -1.2349888923343253, lng: 36.818428038968705},
                     zoom: 8,
-                    styles: styles,
+                    styles: style2,
                     mapTypeControl: false
                 });
 
@@ -193,12 +259,13 @@ function initMap() {
                 // The following group uses the location array to create an array of markers on initialize
                 for (var i = 0; i < locations.length; i++) {
                     var position = locations[i].location;
-                    var title = '<strong>' + locations[i].title + '</strong>' + ' <br> ' + locations[i].stat;
+                    var title = locations[i].title /*+ ' | ' + locations[i].stat*/;
+                    var status = locations[i].stat;
                     var tmpSiteId = locations[i].markernumber;
 
                     //Create a marker per location, and put into markers array
-                    /*   console.log(status)*/
-                    ;
+                    /*   console.log(status) ; */
+
                     var marker = new google.maps.Marker({
                         map: map,
                         position: position,
@@ -206,6 +273,7 @@ function initMap() {
                         icon: defaultIcon,
                         animation: google.maps.Animation.DROP,
                         id: i,
+                        status: status,
                         siteid: tmpSiteId
 
                     });
@@ -297,11 +365,14 @@ function initMap() {
                                 var panorama = new google.maps.StreetViewPanorama(
                                     document.getElementById('pano'), panoramaOptions);
                             } else {
-                                infowindow.setContent('<div>' + marker.title + '<br>' + marker.position + '</div>' +
+                                infowindow.setContent('<div><strong>' + marker.title + '</strong><br>' + marker.position + '</div>' +
                                     '<div>No Street View Found</div>' + '<input type="button" value="Manage Site" id="managesite">')
                             }
-                            $("#theid").html(marker.title);
+                            //Shows display the Site Id of a marker
                             $("#thee-site-id").val(marker.siteid);
+
+                            //TO fetch the status of a site.
+                            getStatusName(marker.status);
 
                             document.getElementById('managesite').addEventListener('click', recordTransaction);
                         }
@@ -425,35 +496,30 @@ function initMap() {
         var markerImage = new google.maps.MarkerImage(
             'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|' + markerColor +
             '|40|_|%E2%80%A2',
-            new google.maps.Size(21, 34),
+            new google.maps.Size(19, 30),
             new google.maps.Point(0, 0),
             new google.maps.Point(10, 34),
-            new google.maps.Size(21, 34));
+            new google.maps.Size(19, 30));
         return markerImage;
     }
+
+
+    //This function takes the id of a marker and fetches its status from the database.
+    //uses the id of the status to query the database
+    function getStatusName(id) {
+        var URL = 'http://tangerine.local/fetchStatus/' + id;
+        $.ajax({
+            method: 'GET',
+            url: URL,
+            success: function (data) {
+                var k = JSON.parse(data);
+                $('#thee-site-status').val(k.status);
+            }
+
+
+        });
+
+    }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
