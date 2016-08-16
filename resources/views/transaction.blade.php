@@ -50,7 +50,9 @@
                                             <td>{{$transaction->duration}} days</td>
                                             <td>{{$transaction->comments}}</td>
                                             <td>{{$transaction->user->username}}</td>
-                                            <td><a class="revoke" href="">Revoke</a></td>
+                                            <td><a class="revoke"
+                                                   href="{{route('transaction.revoke',['transaction_id'=>$transaction->id])}}">Revoke</a>
+                                            </td>
                                         </tr>
 
 
@@ -67,6 +69,7 @@
                                         <th rowspan="1" colspan="1">Duration</th>
                                         <th rowspan="1" colspan="1">Comment</th>
                                         <th rowspan="1" colspan="1">By</th>
+                                        <th rowspan="1" colspan="1">Revoke</th>
 
                                     </tr>
                                     </tfoot>
@@ -106,7 +109,9 @@
                                             <td>{{$transaction->duration}} days</td>
                                             <td>{{$transaction->comments}}</td>
                                             <td>{{$transaction->user->username}}</td>
-                                            <td><a class="revoke" href="">Revoke</a></td>
+                                            <td><a class="revoke"
+                                                   href="{{route('transaction.revoke',['transaction_id'=>$transaction->id])}}">Revoke</a>
+                                            </td>
                                         </tr>
 
 
@@ -123,6 +128,7 @@
                                         <th rowspan="1" colspan="1">Duration</th>
                                         <th rowspan="1" colspan="1">Comment</th>
                                         <th rowspan="1" colspan="1">By</th>
+                                        <th rowspan="1" colspan="1">Revoke</th>
 
                                     </tr>
                                     </tfoot>
@@ -161,7 +167,9 @@
                                             <td>{{$transaction->duration}} days</td>
                                             <td>{{$transaction->comments}}</td>
                                             <td>{{$transaction->user->username}}</td>
-                                            <td><a class="revoke" href="#">Revoke</a></td>
+                                            <td><a class="revoke"
+                                                   href="{{route('transaction.revoke',['transaction_id'=>$transaction->id])}}">Revoke</a>
+                                            </td>
                                         </tr>
 
 
@@ -178,6 +186,7 @@
                                         <th rowspan="1" colspan="1">Duration</th>
                                         <th rowspan="1" colspan="1">Comment</th>
                                         <th rowspan="1" colspan="1">By</th>
+                                        <th rowspan="1" colspan="1">Revoke</th>
 
                                     </tr>
                                     </tfoot>
@@ -217,7 +226,9 @@
                                             <td>{{$transaction->duration}} days</td>
                                             <td>{{$transaction->comments}}</td>
                                             <td>{{$transaction->user->username}}</td>
-                                            <td><a class="revoke" href="">Revoke</a></td>
+                                            <td><a class="revoke"
+                                                   href="{{route('transaction.revoke',['transaction_id'=>$transaction->id])}}">Revoke</a>
+                                            </td>
                                         </tr>
 
 
@@ -234,6 +245,7 @@
                                         <th rowspan="1" colspan="1">Duration</th>
                                         <th rowspan="1" colspan="1">Comment</th>
                                         <th rowspan="1" colspan="1">By</th>
+                                        <th rowspan="1" colspan="1">Revoke</th>
 
                                     </tr>
                                     </tfoot>

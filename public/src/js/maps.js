@@ -370,10 +370,6 @@ function initMap() {
                             }
                             //Shows display the Site Id of a marker
                             $("#thee-site-id").val(marker.siteid);
-
-                            //TO fetch the status of a site.
-                            getStatusName(marker.status);
-
                             document.getElementById('managesite').addEventListener('click', recordTransaction);
                         }
 
@@ -504,22 +500,7 @@ function initMap() {
     }
 
 
-    //This function takes the id of a marker and fetches its status from the database.
-    //uses the id of the status to query the database
-    function getStatusName(id) {
-        var URL = 'http://tangerine.local/fetchStatus/' + id;
-        $.ajax({
-            method: 'GET',
-            url: URL,
-            success: function (data) {
-                var k = JSON.parse(data);
-                $('#thee-site-status').val(k.status);
-            }
 
-
-        });
-
-    }
 
 }
 

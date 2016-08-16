@@ -85,8 +85,13 @@ class TransactionController extends Controller
     }
 
     //To delete a transaction/revoke a transaction
-    public function transactionDeleteTransaction(Request $request)
+    public function transactionDeleteTransaction($transaction_id)
     {
+        $transaction = Transaction::where('id', $transaction_id)->first();
+
+
+//        $transaction->delete();
+        return redirect()->route('transaction')->with(['message' => 'Succesfully deleted']);
 
 
     }

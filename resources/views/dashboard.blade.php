@@ -404,12 +404,6 @@
                                 <span class="input-group-addon input-sm ">Site Id</span>
                                 <input type="text" id="thee-site-id" name="the-site-id" class="form-control input-sm">
                             </div>
-
-                            <input type="text" id="thee-site-status" name="thee-site-status"
-                                   class="form-control input-sm">
-                            <input type="text" id="thee-expiry-date" name="thee-expiry-date"
-                                   class="form-control input-sm">
-
                             <div class="input-group extrapadd">
                                 <span class="input-group-addon input-sm">Client Name</span>
                                 <input type="text" class="form-control input-sm typeahead" id="tmpclient_name"

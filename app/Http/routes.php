@@ -29,6 +29,12 @@ Route::group(['middleware'=> ['web']],function (){
 //   Transactions
     Route::post('/savetransaction', ['uses' => 'TransactionController@transactionCreateTransaction', 'as' => 'save.transaction']);
     Route::get('/transactions', ['uses' => 'TransactionController@getTransactions', 'as' => 'transaction', 'middleware' => 'auth']);
+//    Delete transaction
+    Route::get('/revokeTransaction/{transaction_id}', [
+        'uses' => 'TransactionController@transactionDeleteTransaction',
+        'as' => 'transaction.revoke',
+        'middleware' => 'auth'
+    ]);
 // Query SItes
     Route::get('/getOpen', ['uses' => 'SiteController@getOpen', 'as' => 'open.sites']);
     Route::get('/getClosed', ['uses' => 'SiteController@getClosed', 'as' => 'closed.sites']);
